@@ -1,3 +1,4 @@
 RewriteEngine ON
-RewriteRule ^auth/?$ api/auth.php
-RewriteRule ^invoice/?$ api/invoice.php
+RewriteRule ^api/?$ api/api.php
+RewriteRule ^signout/?$ views/signout.php
+RewriteRule ^login/?$ views/login.php
