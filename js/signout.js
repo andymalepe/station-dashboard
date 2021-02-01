@@ -53,18 +53,25 @@ $(document).ready(function() {
                   $('#tbl-signed-out-user-areas').DataTable({
                       data: data,
                       columns: [
-                        {'data':'Id', 'title': 'Id'},
+                        {'data':'Tickbox', 'title': ''},
+                        {'data':'Id', 'title': 'Id', 'hidden': true},
                         {'data':'Name', 'title': 'Name'},
                         {'data':'Area', 'title': 'Area'},
                         {'data':'OutTime', 'title': 'Time'},
                         {'data':'HoursOut', 'title': 'Hours Outside'},
                         {'data':'SignedIn', 'title': 'Action'},
                       ],
+                      columnDefs: [ {
+                      orderable: false,
+                      className: 'select-checkbox',
+                      targets:   0
+                      } ],
                       select: {
-                        style:    'os',
-                        selector: 'td:first-child'
-                      }
-                    });
+                          style:    'os',
+                          selector: 'td:first-child'
+                      },
+                      order: [[ 1, 'asc' ]]
+                  });
                 }
              },
          error: function(a, b, c){

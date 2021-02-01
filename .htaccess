@@ -1,0 +1,3 @@
+RewriteEngine ON
+RewriteRule ^auth/?$ api/auth.php
+RewriteRule ^invoice/?$ api/invoice.php

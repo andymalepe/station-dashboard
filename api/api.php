@@ -36,7 +36,8 @@
  if (isset($_GET['signedOutLog']) && $_GET['signedOutLog'] !== null) {
    if ($_GET['signedOutLog'] == true) {
      $pdo = startPDO();
-     $request = $pdo->query("SELECT signout_users.Id,
+     $request = $pdo->query("SELECT '' as Tickbox,
+          signout_users.Id,
           signout_users.Name,
           signout_areas.Area,
           signout_log.OutTime,

@@ -16,7 +16,7 @@
   <body>
     <nav class="navbar navbar-light sticky-top bg-light justify-content-center nav-station-logo">
       <a class="navbar-brand navbar-text" href="#">
-        <img src="img/s60-logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+        <img src="images/s60-logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
         SANAE IV
       </a>
     </nav>
@@ -100,7 +100,7 @@
         <script type="text/javascript" src="lib/dataTables.select.min.js"></script>
     <!-- <script type="text/javascript" src="lib/dataTables.bootstrap4.min.js"></script> -->
     <script type="text/javascript" src="lib/dataTables.foundation.min.js"></script>
-    <script type="text/javascript" src="lib/bootstrap-select.min.js"></script>
+    <!-- <script type="text/javascript" src="lib/bootstrap-select.min.js"></script> -->
     <script type="text/javascript" src="js/signout.js"></script>
   </body>
 </html>
