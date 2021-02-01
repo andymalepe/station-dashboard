@@ -1,106 +1,45 @@
-<style media="screen">
-body {
-  font-family: "Lato", sans-serif;
-}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="../lib/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/login.css">
 
 
+  </head>
+  <body>
+    <div class="sidenav">
+             <div class="login-main-text">
+                <h2><?php require_once('../config.php'); echo STATION; ?> Station<br>Admin Login Page</h2>
+                <p>Login to admin dashboard.</p>
+             </div>
+          </div>
+          <div class="main">
+             <div class="col-md-6 col-sm-12">
+                <div class="login-form">
+                   <form>
+                      <div class="form-group">
+                         <label>User Name</label>
+                         <input type="text" class="form-control" placeholder="User Name">
+                      </div>
+                      <div class="form-group">
+                         <label>Password</label>
+                         <input type="password" class="form-control" placeholder="Password">
+                      </div>
+                      <button type="submit" class="btn btn-black">Login</button>
+                   </form>
+                </div>
+             </div>
+          </div>
+          <script>
 
-.main-head{
-  height: 150px;
-  background: #FFF;
+          </script>
+          <script  type="text/javascript" src="../lib/jquery-3.5.1.min.js"></script>
+          <script  type="text/javascript" src="../lib/popper.min.js"></script>
+          <script  type="text/javascript" src="../lib/bootstrap.min.js"></script>
 
-}
-
-.sidenav {
-  height: 100%;
-  background-color: #000;
-  overflow-x: hidden;
-  padding-top: 20px;
-}
-
-
-.main {
-  padding: 0px 10px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-}
-
-@media screen and (max-width: 450px) {
-  .login-form{
-      margin-top: 10%;
-  }
-
-  .register-form{
-      margin-top: 10%;
-  }
-}
-
-@media screen and (min-width: 768px){
-  .main{
-      margin-left: 40%;
-  }
-
-  .sidenav{
-      width: 40%;
-      position: fixed;
-      z-index: 1;
-      top: 0;
-      left: 0;
-  }
-
-  .login-form{
-      margin-top: 80%;
-  }
-
-  .register-form{
-      margin-top: 20%;
-  }
-}
-
-
-.login-main-text{
-  margin-top: 20%;
-  padding: 60px;
-  color: #fff;
-}
-
-.login-main-text h2{
-  font-weight: 300;
-}
-
-.btn-black{
-  background-color: #000 !important;
-  color: #fff;
-}
-</style>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  </body>
+</html>
 <!------ Include the above in your HEAD tag ---------->
-
-<div class="sidenav">
-         <div class="login-main-text">
-            <h2>Application<br> Login Page</h2>
-            <p>Login or register from here to access.</p>
-         </div>
-      </div>
-      <div class="main">
-         <div class="col-md-6 col-sm-12">
-            <div class="login-form">
-               <form>
-                  <div class="form-group">
-                     <label>User Name</label>
-                     <input type="text" class="form-control" placeholder="User Name">
-                  </div>
-                  <div class="form-group">
-                     <label>Password</label>
-                     <input type="password" class="form-control" placeholder="Password">
-                  </div>
-                  <button type="submit" class="btn btn-black">Login</button>
-                  <button type="submit" class="btn btn-secondary">Register</button>
-               </form>
-            </div>
-         </div>
-      </div>

@@ -70,7 +70,15 @@ $(document).ready(function() {
                           style:    'os',
                           selector: 'td:first-child'
                       },
-                      order: [[ 1, 'asc' ]]
+                      order: [[ 1, 'asc' ]],
+                      buttons: [
+        {
+            text: 'Reload',
+            action: function ( e, dt, node, config ) {
+                dt.ajax.reload();
+            }
+        }
+    ]
                   });
                 }
              },

@@ -7,7 +7,7 @@
     <!-- <link rel="stylesheet" href="lib/dataTables.bootstrap.css"> -->
     <link rel="stylesheet" href="lib/dataTables.foundation.min.css">
     <link rel="stylesheet" href="lib/select.dataTables.min.css">
-
+    <link rel="stylesheet" href="lib/buttons.foundation.min.css">
     <!-- <link rel="stylesheet" href="lib/bootstrap-select.min.css"> -->
     <link rel="stylesheet" href="css/master.css">
     <meta charset="utf-8">
@@ -97,9 +97,12 @@
     <!-- <script type="text/javascript" src="lib/foundation.min.js"></script> -->
     <script type="text/javascript" src="lib/masonry.pkgd.min.js"></script>
     <script type="text/javascript" src="lib/jquery.dataTables.min.js"></script>
-        <script type="text/javascript" src="lib/dataTables.select.min.js"></script>
+
+    <script type="text/javascript" src="lib/dataTables.buttons.min.js"></script>
     <!-- <script type="text/javascript" src="lib/dataTables.bootstrap4.min.js"></script> -->
     <script type="text/javascript" src="lib/dataTables.foundation.min.js"></script>
+    <script type="text/javascript" src="lib/dataTables.select.min.js"></script>
+    <script type="text/javascript" src="lib/buttons.foundation.min.js"></script>
     <!-- <script type="text/javascript" src="lib/bootstrap-select.min.js"></script> -->
     <script type="text/javascript" src="js/signout.js"></script>
   </body>
