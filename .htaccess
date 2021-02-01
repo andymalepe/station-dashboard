@@ -2,3 +2,4 @@ RewriteEngine ON
 RewriteRule ^api/?$ api/api.php
 RewriteRule ^signout/?$ views/signout.php
 RewriteRule ^login/?$ views/login.php
+RewriteRule ^home/?$ index.php
