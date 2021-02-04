@@ -1,7 +1,5 @@
 $(document).ready(function() {
 
-
-    // $('.selectpicker').selectpicker();
     function loadTableSignOutUsers(tableId, tableData){
       let tblSignedOutUserAreas = $(tableId).DataTable({
           data: tableData,
@@ -42,7 +40,7 @@ $(document).ready(function() {
     }
 
     $.ajax({
-       url: 'api/api.php',
+       url: '/api/',
        type: 'GET',
        dataType: 'json',
        data: {
@@ -61,7 +59,7 @@ $(document).ready(function() {
      });
 
      $.ajax({
-        url: 'api/api.php',
+        url: '/api/',
         type: 'GET',
         dataType: 'json',
         data: {
@@ -80,7 +78,7 @@ $(document).ready(function() {
       });
 
       $.ajax({
-         url: 'api/api.php',
+         url: '/api/',
          type: 'GET',
          dataType: 'json',
          data: {

@@ -1,10 +1,10 @@
-
 <!DOCTYPE html>
+
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>Admin Login</title>
-    <link rel="stylesheet" href="../lib/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="../lib/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/login.css">
 
 
@@ -29,6 +29,7 @@
                          <input type="password" class="form-control" placeholder="Password">
                       </div>
                       <button type="submit" class="btn btn-outline-success">Login</button>
+                      <a id="btn-admin-login-cancel" class="btn btn-outline-danger" href="/home/">Cancel</a>
                    </form>
                 </div>
              </div>
@@ -36,9 +37,9 @@
           <script>
 
           </script>
-          <script  type="text/javascript" src="../lib/jquery-3.5.1.min.js"></script>
-          <script  type="text/javascript" src="../lib/popper.min.js"></script>
-          <script  type="text/javascript" src="../lib/bootstrap.min.js"></script>
+          <script  type="text/javascript" src="../lib/js/jquery-3.5.1.min.js"></script>
+          <script  type="text/javascript" src="../lib/js/popper.min.js"></script>
+          <script  type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
 
   </body>
 </html>
