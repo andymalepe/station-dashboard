@@ -2,6 +2,45 @@ $(document).ready(function() {
 
 
     // $('.selectpicker').selectpicker();
+    function loadTableSignOutUsers(tableId, tableData){
+      let tblSignedOutUserAreas = $(tableId).DataTable({
+          data: tableData,
+          columns: [
+            {'data':'Tickbox', 'title': ''},
+            {'data':'Id', 'title': 'Id', 'hidden': true},
+            {'data':'Name', 'title': 'Name'},
+            {'data':'Area', 'title': 'Area'},
+            {'data':'OutTime', 'title': 'Time'},
+            {'data':'HoursOut', 'title': 'Hours Outside'},
+            {'data':'SignedIn', 'title': 'Action'},
+          ],
+          columnDefs: [ {
+          orderable: false,
+          className: 'select-checkbox',
+          targets:   0
+          } ],
+          select: {
+              style:    'os',
+              selector: 'td:first-child'
+          },
+          order: [[ 1, 'asc' ]],
+          dom: 'Bfrtip',
+          buttons: [
+              'selectAll',
+              'selectNone',
+                {
+                text: 'Reload',
+                action: function ( e, dt, node, config ) {
+                    console.log(config);
+                }
+            }
+          ],
+      });
+      $(tableId+' tbody').on( 'click', 'tr', function () {
+          console.log(tblSignedOutUserAreas.row( this ).data());
+      });
+    }
+
     $.ajax({
        url: 'api/api.php',
        type: 'GET',
@@ -49,36 +88,10 @@ $(document).ready(function() {
          },
          success: function(data){
                if (data.length > 0){
-                  console.log(data);
-                  $('#tbl-signed-out-user-areas').DataTable({
-                      data: data,
-                      columns: [
-                        {'data':'Tickbox', 'title': ''},
-                        {'data':'Id', 'title': 'Id', 'hidden': true},
-                        {'data':'Name', 'title': 'Name'},
-                        {'data':'Area', 'title': 'Area'},
-                        {'data':'OutTime', 'title': 'Time'},
-                        {'data':'HoursOut', 'title': 'Hours Outside'},
-                        {'data':'SignedIn', 'title': 'Action'},
-                      ],
-                      columnDefs: [ {
-                      orderable: false,
-                      className: 'select-checkbox',
-                      targets:   0
-                      } ],
-                      select: {
-                          style:    'os',
-                          selector: 'td:first-child'
-                      },
-                      order: [[ 1, 'asc' ]],
-                      buttons: [
-        {
-            text: 'Reload',
-            action: function ( e, dt, node, config ) {
-                dt.ajax.reload();
-            }
-        }
-    ]
+                  let tableId = '#tbl-signed-out-user-areas';
+                  loadTableSignOutUsers(tableId, data);
+                  $(tableId+' tbody').on( 'click', 'tr', function () {
+                      console.log( tblSignedOutUserAreas.row( this ).data() );
                   });
                 }
              },

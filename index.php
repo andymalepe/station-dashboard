@@ -7,6 +7,8 @@
     <!-- <link rel="stylesheet" href="lib/dataTables.bootstrap.css"> -->
     <link rel="stylesheet" href="lib/dataTables.foundation.min.css">
     <link rel="stylesheet" href="lib/select.dataTables.min.css">
+    <link rel="stylesheet" href="lib/buttons.dataTables.min.css">
+    buttons.dataTables.min.css
     <link rel="stylesheet" href="lib/buttons.foundation.min.css">
     <!-- <link rel="stylesheet" href="lib/bootstrap-select.min.css"> -->
     <link rel="stylesheet" href="css/master.css">
@@ -39,7 +41,7 @@
         </ul>
       </div>
       <form class="form-inline">
-        <button class="btn btn-outline-success my-2 my-sm-0 page-elements-right-margin" type="submit">Admin</button>
+        <button class="btn btn-outline-success my-2 my-sm-0 page-elements-right-margin" type="submit" href="/login/">Admin</button>
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Station Sign Out</button>
       </form>
     </nav>
@@ -72,7 +74,7 @@
             <select class="custom-select page-elements-right-margin" id="sel-sign-out-areas">
               <option selected>Choose area</option>
             </select>
-            <button type="button" class="btn btn-outline-success disabled" id="btn-user-area-sign-out">Sign Out</button>
+            <button type="button" class="btn btn-outline-success" id="btn-user-area-sign-out">Sign Out</button>
           </div>
         </div>
         <div class="col">
@@ -84,6 +86,9 @@
         <div class="col-8">
           <table id="tbl-signed-out-user-areas" class="cell-border" style="width:100%">
           </table>
+          <div class="col-md-auto">
+            <button type="button" class="btn btn-outline-success" id="btn-user-area-sign-in">Sign In</button>
+          </div>
         </div>
         <div class="col">
         </div>
@@ -98,10 +103,11 @@
     <script type="text/javascript" src="lib/masonry.pkgd.min.js"></script>
     <script type="text/javascript" src="lib/jquery.dataTables.min.js"></script>
 
-    <script type="text/javascript" src="lib/dataTables.buttons.min.js"></script>
+
     <!-- <script type="text/javascript" src="lib/dataTables.bootstrap4.min.js"></script> -->
     <script type="text/javascript" src="lib/dataTables.foundation.min.js"></script>
     <script type="text/javascript" src="lib/dataTables.select.min.js"></script>
+    <script type="text/javascript" src="lib/dataTables.buttons.min.js"></script>
     <script type="text/javascript" src="lib/buttons.foundation.min.js"></script>
     <!-- <script type="text/javascript" src="lib/bootstrap-select.min.js"></script> -->
     <script type="text/javascript" src="js/signout.js"></script>
