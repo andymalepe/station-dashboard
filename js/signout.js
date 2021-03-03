@@ -1,11 +1,39 @@
 $(document).ready(function() {
 
+    let rowData = [];
+    let logTable = {};
+    function signInUser(logData){
+      console.log(logData.Area);
+      console.log(logData.Id);
+      if (parseInt(logData.Id) > 0) {
+        $.ajax({
+           url: '/api/',
+           type: 'GET',
+           dataType: 'json',
+           data: {
+             signIn: true,
+             LogId: logData.Id
+           },
+           success: function(response){
+                 if (response == 200){
+                   return response;
+                 }else {
+                   return 400;
+                 }
+               },
+           error: function(a, b, c){
+               console.log(a);
+           }
+         });
+      }
+    }
+
     function loadTableSignOutUsers(tableId, tableData){
       let tblSignedOutUserAreas = $(tableId).DataTable({
           data: tableData,
           columns: [
             {'data':'Tickbox', 'title': ''},
-            {'data':'Id', 'title': 'Id', 'hidden': true},
+            {'data':'Id', 'title': 'Id'},
             {'data':'Name', 'title': 'Name'},
             {'data':'Area', 'title': 'Area'},
             {'data':'OutTime', 'title': 'Time'},
@@ -16,7 +44,10 @@ $(document).ready(function() {
           orderable: false,
           className: 'select-checkbox',
           targets:   0
-          } ],
+          },{
+                "targets": [ 1,6 ],
+                "visible": false
+            } ],
           select: {
               style:    'os',
               selector: 'td:first-child'
@@ -34,10 +65,32 @@ $(document).ready(function() {
             }
           ],
       });
-      $(tableId+' tbody').on( 'click', 'tr', function () {
-          console.log(tblSignedOutUserAreas.row( this ).data());
-      });
+      if(tblSignedOutUserAreas){
+        return tblSignedOutUserAreas;
+      }else {
+        return null;
+      }
     }
+
+
+    $.ajax({
+       url: '/api/',
+       type: 'GET',
+       dataType: 'json',
+       data: {
+         signedOutLog: true
+       },
+       success: function(data){
+             if (data.length > 0){
+                let tableId = '#tbl-signed-out-user-areas';
+                logTable = loadTableSignOutUsers(tableId, data);
+              }
+           },
+       error: function(a, b, c){
+           console.log(a);
+       }
+     });
+
 
     $.ajax({
        url: '/api/',
@@ -77,26 +130,7 @@ $(document).ready(function() {
         }
       });
 
-      $.ajax({
-         url: '/api/',
-         type: 'GET',
-         dataType: 'json',
-         data: {
-           signedOutLog: true
-         },
-         success: function(data){
-               if (data.length > 0){
-                  let tableId = '#tbl-signed-out-user-areas';
-                  loadTableSignOutUsers(tableId, data);
-                  $(tableId+' tbody').on( 'click', 'tr', function () {
-                      console.log( tblSignedOutUserAreas.row( this ).data() );
-                  });
-                }
-             },
-         error: function(a, b, c){
-             console.log(a);
-         }
-       });
+
 
        $('#btn-user-area-sign-out').on('click', function(e){
          let UserId = $('#sel-sign-out-users').val();
@@ -111,7 +145,7 @@ $(document).ready(function() {
          }
          if (valid) {
            $.ajax({
-              url: 'api/api.php',
+              url: '/api/',
               type: 'GET',
               dataType: 'json',
               data: {
@@ -121,7 +155,10 @@ $(document).ready(function() {
               },
               success: function(data){
                     if (data){
-                       alert ('Successfully signed out');
+                      //$('#tbl-signed-out-user-areas').DataTable().ajax.reload();
+                      $('#standard-dashboard-modal-body').text('Successfully signed out');
+                      $('#standard-dashboard-modal').modal('toggle');
+                       //alert ('Successfully signed out');
                      }
                   },
               error: function(a, b, c){
@@ -130,4 +167,28 @@ $(document).ready(function() {
             });
          }
        });
+
+       $('#btn-user-area-sign-in').on('click', function(e){
+           let rowData = $('#tbl-signed-out-user-areas').DataTable().rows({selected: true}).data().toArray();
+           console.log(rowData);
+           let result = 200;
+           if (rowData) {
+              rowData.forEach((user, i) => {
+                let response = signInUser(user);
+                if (response == 200) {
+                  result = 200;
+                }else {
+                  result = 400;
+                }
+              });
+              if (result == 200 ) {
+                  $('#standard-dashboard-modal-body').text('Successfully signed in');
+                  $('#standard-dashboard-modal').modal('toggle');
+              }else {
+                $('#standard-dashboard-modal-body').text('Unable to sign in user. Please retry!');
+                $('#standard-dashboard-modal').modal('toggle');
+              }
+           }
+       });
+
 } );

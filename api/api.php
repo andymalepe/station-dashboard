@@ -37,7 +37,7 @@
    if ($_GET['signedOutLog'] == true) {
      $pdo = startPDO();
      $request = $pdo->query("SELECT '' as Tickbox,
-          signout_users.Id,
+          signout_log.Id,
           signout_users.Name,
           signout_areas.Area,
           signout_log.OutTime,
@@ -45,7 +45,8 @@
           signout_log.SignedIn
         FROM signout_users
         INNER JOIN signout_log ON signout_users.Id=signout_log.UserId
-        INNER JOIN signout_areas ON signout_areas.Id=signout_log.AreaId")->fetchAll();
+        INNER JOIN signout_areas ON signout_areas.Id=signout_log.AreaId
+        WHERE signout_log.SignedIn=0")->fetchAll();
       echo json_encode($request);
    }
  }
@@ -66,6 +67,28 @@
         }catch (Exception $e){
             $pdo->rollback();
             echo json_encode(false);
+            throw $e;
+        }
+     }
+   }
+ }
+
+
+ if (isset($_GET['signIn']) && $_GET['signIn'] !== null) {
+   if ($_GET['LogId']) {
+     $LogId = intval($_GET['LogId']);
+     if ($LogId > 0) {
+       $signedIn = 1;
+       $pdo = startPDO();
+       $stmt = $pdo->prepare("UPDATE signout_log SET SignedIn=?, InTime=NOW() WHERE Id=?");
+        try {
+            $pdo->beginTransaction();
+            $stmt->execute([$signedIn, $LogId]);
+            $pdo->commit();
+            echo json_encode(200);
+        }catch (Exception $e){
+            $pdo->rollback();
+            echo json_encode(500);
             throw $e;
         }
      }
