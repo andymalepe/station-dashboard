@@ -3,22 +3,22 @@ $(document).ready(function() {
     let rowData = [];
     let logTable = {};
     function signInUser(logData){
-      console.log(logData.Area);
-      console.log(logData.Id);
-      if (parseInt(logData.Id) > 0) {
+      if (logData.length > 0) {
         $.ajax({
            url: '/api/',
            type: 'GET',
            dataType: 'json',
            data: {
              signIn: true,
-             LogId: logData.Id
+             LogIds: logData
            },
            success: function(response){
                  if (response == 200){
-                   return response;
+                   $('#standard-dashboard-modal-body').text('Successfully Signed In');
+                   $('#standard-dashboard-modal').modal('toggle');
                  }else {
-                   return 400;
+                   $('#standard-dashboard-modal-body').text('Unable to Sign In user. Please retry!');
+                   $('#standard-dashboard-modal').modal('toggle');
                  }
                },
            error: function(a, b, c){
@@ -60,7 +60,7 @@ $(document).ready(function() {
                 {
                 text: 'Reload',
                 action: function ( e, dt, node, config ) {
-                    console.log(config);
+                    location.reload();
                 }
             }
           ],
@@ -137,10 +137,12 @@ $(document).ready(function() {
          let AreaId = $('#sel-sign-out-areas').val();
          let valid = true;
          if (!(UserId > 0)) {
-           alert('Select User');
+           $('#standard-dashboard-modal-body').text('Select User');
+           $('#standard-dashboard-modal').modal('toggle');
            valid = false;
          }else if (!(AreaId > 0)) {
-           alert('Select Area');
+           $('#standard-dashboard-modal-body').text('Select Area');
+           $('#standard-dashboard-modal').modal('toggle');
            valid = false;
          }
          if (valid) {
@@ -155,10 +157,8 @@ $(document).ready(function() {
               },
               success: function(data){
                     if (data){
-                      //$('#tbl-signed-out-user-areas').DataTable().ajax.reload();
-                      $('#standard-dashboard-modal-body').text('Successfully signed out');
+                      $('#standard-dashboard-modal-body').text('Successfully Signed Out');
                       $('#standard-dashboard-modal').modal('toggle');
-                       //alert ('Successfully signed out');
                      }
                   },
               error: function(a, b, c){
@@ -170,25 +170,18 @@ $(document).ready(function() {
 
        $('#btn-user-area-sign-in').on('click', function(e){
            let rowData = $('#tbl-signed-out-user-areas').DataTable().rows({selected: true}).data().toArray();
-           console.log(rowData);
-           let result = 200;
-           if (rowData) {
-              rowData.forEach((user, i) => {
-                let response = signInUser(user);
-                if (response == 200) {
-                  result = 200;
-                }else {
-                  result = 400;
-                }
+           if (rowData.length > 0) {
+              let rowIds = rowData.map(function (row) {
+                return row.Id;
               });
-              if (result == 200 ) {
-                  $('#standard-dashboard-modal-body').text('Successfully signed in');
-                  $('#standard-dashboard-modal').modal('toggle');
-              }else {
-                $('#standard-dashboard-modal-body').text('Unable to sign in user. Please retry!');
-                $('#standard-dashboard-modal').modal('toggle');
-              }
+              let result = signInUser(rowIds);
+           }else {
+             $('#standard-dashboard-modal-body').text('Please select user to Sign In');
+             $('#standard-dashboard-modal').modal('toggle');
            }
        });
+       $(document).on('hide.bs.modal','#standard-dashboard-modal', function () {
+          location.reload()
+        });
 
 } );

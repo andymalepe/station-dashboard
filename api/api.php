@@ -20,7 +20,7 @@
  if (isset($_GET['users']) && $_GET['users'] !== null) {
    if ($_GET['users'] == true) {
      $pdo = startPDO();
-     $request = $pdo->query("SELECT * FROM signout_users ORDER BY Name ASC")->fetchAll();
+     $request = $pdo->query("SELECT * FROM signout_users WHERE signout_users.Overwinterer=1 ORDER BY Name ASC")->fetchAll();
      echo json_encode($request);
    }
  }
@@ -41,7 +41,7 @@
           signout_users.Name,
           signout_areas.Area,
           signout_log.OutTime,
-          (UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(signout_log.OutTime))/3600 AS HoursOut,
+          ROUND(((UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(signout_log.OutTime))/3600), 0) AS HoursOut,
           signout_log.SignedIn
         FROM signout_users
         INNER JOIN signout_log ON signout_users.Id=signout_log.UserId
@@ -75,23 +75,23 @@
 
 
  if (isset($_GET['signIn']) && $_GET['signIn'] !== null) {
-   if ($_GET['LogId']) {
-     $LogId = intval($_GET['LogId']);
-     if ($LogId > 0) {
-       $signedIn = 1;
-       $pdo = startPDO();
-       $stmt = $pdo->prepare("UPDATE signout_log SET SignedIn=?, InTime=NOW() WHERE Id=?");
-        try {
+   if (sizeof($_GET['LogIds']) > 0) {
+     $LogIds = $_GET['LogIds'];
+     $signedIn = 1;
+     $pdo = startPDO();
+     $stmt = $pdo->prepare("UPDATE signout_log SET SignedIn=?, InTime=NOW() WHERE Id=?");
+      try {
+          foreach ($LogIds as $key) {
             $pdo->beginTransaction();
-            $stmt->execute([$signedIn, $LogId]);
+            $stmt->execute([$signedIn, intval($key)]);
             $pdo->commit();
-            echo json_encode(200);
-        }catch (Exception $e){
-            $pdo->rollback();
-            echo json_encode(500);
-            throw $e;
-        }
-     }
+          }
+          echo json_encode(200);
+      }catch (Exception $e){
+          $pdo->rollback();
+          echo json_encode(500);
+          throw $e;
+      }
    }
  }
 
