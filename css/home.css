@@ -57,7 +57,7 @@ body {
 }
 
 .card-weather .card-body:first-child {
-    background: url(https://res.cloudinary.com/dxfq3iotg/image/upload/v1557323760/weather.svg) no-repeat center;
+    background: url(../images/weather.svg) no-repeat center;
     background-size: cover
 }
 
@@ -121,7 +121,7 @@ p {
 }
 
 .display-3 {
-    font-size: 2.5rem
+    font-size: 1.5rem
 }
 
 .card-weather .card-body {

@@ -33,8 +33,12 @@ $(document).ready(function(){
       let timeseries_dt = new Date(data.properties.timeseries[0].time);
       //set current weather forecast
       $('#dayOfWeek').text(days[timeseries_dt.getUTCDay()]);
-      $('#weather-date').text(timeseries_dt.getUTCDate() + ' ' +timeseries_dt.toLocaleString('default', { month: 'long' }) + ' ' + timeseries_dt.getUTCFullYear());
-      $('#air-temperature').html(data.properties.timeseries[0].data.instant.details.air_temperature+' <span class="symbol">°</span>C');
+      $('#forecast-weather-date').text(timeseries_dt.getUTCDate() + ' ' +timeseries_dt.toLocaleString('default', { month: 'long' }) + ' ' + timeseries_dt.getUTCFullYear());
+      $('#forecast-symbol')[0].src = location.origin+'/images/weathericon/png/'+data.properties.timeseries[0].data.next_1_hours.summary.symbol_code+'.png';
+      $('#forecast-air-temperature').html(data.properties.timeseries[0].data.instant.details.air_temperature.toFixed(0)+' <span class="symbol">°</span>C');
+      $('#forecast-wind-speed').html(data.properties.timeseries[0].data.instant.details.wind_speed.toFixed(0)+' m/s');
+      $('#forecast-relative-humidity').html(data.properties.timeseries[0].data.instant.details.relative_humidity.toFixed(0)+' %');
+      $('#forecast-wind-from-direction').html(data.properties.timeseries[0].data.instant.details.wind_from_direction.toFixed(0)+' <span class="symbol">°</span>');
       //loop through time series for future firecasts
       let forecastCount = 0;
       const maxForecastCount = 7;
@@ -42,15 +46,16 @@ $(document).ready(function(){
         let datetime = new Date(timeseries.time);
         //get tomorrow 12h time
         //console.log(datetime.getUTCDate());
-          if (equal_dates(nextDay_dt, datetime)) {
-            $('#forecast-air-temperature-'+forecastCount).html(timeseries.data.instant.details.air_temperature+' <span class="symbol">°</span>C');
+          if (equal_dates(nextDay_dt, datetime) && forecastCount < maxForecastCount ) {
+          //  console.log(timeseries.data.next_6_hours.summary.symbol_code)
+          //console.log(timeseries.data.instant.details.wind_speed);
             $('#forecast-day-'+forecastCount).text(shortDays[datetime.getUTCDay()]);
+            $('#forecast-symbol-'+forecastCount)[0].src = location.origin+'/images/weathericon/png/'+timeseries.data.next_6_hours.summary.symbol_code+'.png';
+            $('#forecast-air-temperature-'+forecastCount).html(timeseries.data.instant.details.air_temperature.toFixed(0)+' <span class="symbol">°</span>C');
+            $('#forecast-wind-speed-'+forecastCount).html(timeseries.data.instant.details.wind_speed.toFixed(0)+' <span class="symbol">m/s</span>');
+            $('#forecast-relative-humidity-'+forecastCount).html(timeseries.data.instant.details.relative_humidity.toFixed(0)+' <span class="symbol">%</span>');
+            $('#forecast-wind-from-direction-'+forecastCount).html(timeseries.data.instant.details.wind_from_direction.toFixed(0)+' <span class="symbol">°</span>');
             forecastCount++;
-
-            console.log(timeseries.time);
-            console.log(timeseries.data.instant.details);
-            console.log(nextDay_dt);
-            console.log(datetime);
             nextDay_dt.setUTCDate(nextDay_dt.getUTCDate() + 1);
             nextDay_dt.setUTCHours(12,0,0,0);
           }else {
