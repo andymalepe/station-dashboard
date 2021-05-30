@@ -18,11 +18,11 @@
                         <div class="card-body">
                             <div class="weather-date-location">
                                 <h3 id="dayOfWeek">Friday</h3>
-                                <p class="text-gray"> <span class="weather-date">25 March, 2019</span> <span class="weather-location">SANAE IV, Antarctica</span> </p>
+                                <p class="text-gray"> <span class="weather-date" id="weather-date"></span> <span class="weather-location">SANAE IV, Antarctica</span> </p>
                             </div>
                             <div class="weather-data d-flex">
                                 <div class="mr-auto">
-                                    <h4 class="display-3" id="air-temperature">32 <span class="symbol">°</span>C</h4>
+                                    <h4 class="display-3" id="air-temperature"> </h4>
                                     <p> Cloudy </p>
                                 </div>
                             </div>
@@ -30,32 +30,32 @@
                         <div class="card-body p-0">
                             <div class="d-flex weekly-weather">
                                 <div class="weekly-weather-item">
-                                    <p class="mb-0"> Sun </p> <i class="mdi mdi-weather-cloudy"></i>
-                                    <p class="mb-0"> 30° </p>
+                                    <p class="mb-0" id="forecast-day-0"> Sun </p> <i class="mdi mdi-weather-cloudy"></i>
+                                    <p class="mb-0" id="forecast-air-temperature-0"> 30° </p>
                                 </div>
                                 <div class="weekly-weather-item">
-                                    <p class="mb-1"> Mon </p> <i class="mdi mdi-weather-hail"></i>
-                                    <p class="mb-0"> 31° </p>
+                                    <p class="mb-1" id="forecast-day-1"> Mon </p> <i class="mdi mdi-weather-hail"></i>
+                                    <p class="mb-0" id="forecast-air-temperature-1"> 31° </p>
                                 </div>
                                 <div class="weekly-weather-item">
-                                    <p class="mb-1"> Tue </p> <i class="mdi mdi-weather-partlycloudy"></i>
-                                    <p class="mb-0"> 28° </p>
+                                    <p class="mb-1" id="forecast-day-2"> Tue </p> <i class="mdi mdi-weather-partlycloudy"></i>
+                                    <p class="mb-0" id="forecast-air-temperature-2"> 28° </p>
                                 </div>
                                 <div class="weekly-weather-item">
-                                    <p class="mb-1"> Wed </p> <i class="mdi mdi-weather-pouring"></i>
-                                    <p class="mb-0"> 30° </p>
+                                    <p class="mb-1" id="forecast-day-3"> Wed </p> <i class="mdi mdi-weather-pouring"></i>
+                                    <p class="mb-0" id="forecast-air-temperature-3"> 30° </p>
                                 </div>
                                 <div class="weekly-weather-item">
-                                    <p class="mb-1"> Thu </p> <i class="mdi mdi-weather-pouring"></i>
-                                    <p class="mb-0"> 29° </p>
+                                    <p class="mb-1" id="forecast-day-4"> Thu </p> <i class="mdi mdi-weather-pouring"></i>
+                                    <p class="mb-0" id="forecast-air-temperature-4"> 29° </p>
                                 </div>
                                 <div class="weekly-weather-item">
-                                    <p class="mb-1"> Fri </p> <i class="mdi mdi-weather-snowy-rainy"></i>
-                                    <p class="mb-0"> 31° </p>
+                                    <p class="mb-1" id="forecast-day-5"> Fri </p> <i class="mdi mdi-weather-snowy-rainy"></i>
+                                    <p class="mb-0" id="forecast-air-temperature-5"> 31° </p>
                                 </div>
                                 <div class="weekly-weather-item">
-                                    <p class="mb-1"> Sat </p> <i class="mdi mdi-weather-snowy"></i>
-                                    <p class="mb-0"> 32° </p>
+                                    <p class="mb-1" id="forecast-day-6"> Sat </p> <i class="mdi mdi-weather-snowy"></i>
+                                    <p class="mb-0" id="forecast-air-temperature-6"> 32° </p>
                                 </div>
                             </div>
                         </div>
