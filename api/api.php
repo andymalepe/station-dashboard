@@ -95,4 +95,15 @@
    }
  }
 
+ if (isset($_GET['PlanetaryKp']) && $_GET['PlanetaryKp'] !== null) {
+    $url = 'https://services.swpc.noaa.gov/text/daily-geomagnetic-indices.txt';
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, True);
+    curl_setopt($curl, CURLOPT_URL, $url);
+    $return = curl_exec($curl);
+    curl_close($curl);
+    // get last PlanetaryKp into array
+    echo json_encode($return);
+ }
+
 ?>

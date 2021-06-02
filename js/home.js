@@ -1,4 +1,6 @@
 // YR LINK: https://api.met.no/weatherapi/locationforecast/2.0/complete?lat=-71.6703&lon=-2.8377&altitude=850
+// https://services.swpc.noaa.gov/images/aurora-forecast-southern-hemisphere.jpg
+//https://services.swpc.noaa.gov/text/daily-geomagnetic-indices.txt
 $(document).ready(function(){
   let equal_dates = function(dt1, dt2){
      if (dt1 > dt2) return false;
@@ -31,7 +33,7 @@ $(document).ready(function(){
       nextDay_dt.setUTCDate(nextDay_dt.getUTCDate() + 1);
       nextDay_dt.setUTCHours(12,0,0,0);
       let timeseries_dt = new Date(data.properties.timeseries[0].time);
-      //set current weather forecast
+      //display today's weather forecast
       $('#dayOfWeek').text(days[timeseries_dt.getUTCDay()]);
       $('#forecast-weather-date').text(timeseries_dt.getUTCDate() + ' ' +timeseries_dt.toLocaleString('default', { month: 'long' }) + ' ' + timeseries_dt.getUTCFullYear());
       $('#forecast-symbol')[0].src = location.origin+'/images/weathericon/png/'+data.properties.timeseries[0].data.next_1_hours.summary.symbol_code+'.png';
@@ -45,10 +47,8 @@ $(document).ready(function(){
       $.each(data.properties.timeseries, function(index, timeseries){
         let datetime = new Date(timeseries.time);
         //get tomorrow 12h time
-        //console.log(datetime.getUTCDate());
           if (equal_dates(nextDay_dt, datetime) && forecastCount < maxForecastCount ) {
-          //  console.log(timeseries.data.next_6_hours.summary.symbol_code)
-          //console.log(timeseries.data.instant.details.wind_speed);
+          //  display week forecast
             $('#forecast-day-'+forecastCount).text(shortDays[datetime.getUTCDay()]);
             $('#forecast-symbol-'+forecastCount)[0].src = location.origin+'/images/weathericon/png/'+timeseries.data.next_6_hours.summary.symbol_code+'.png';
             $('#forecast-air-temperature-'+forecastCount).html(timeseries.data.instant.details.air_temperature.toFixed(0)+' <span class="symbol">°</span>C');
@@ -58,8 +58,6 @@ $(document).ready(function(){
             forecastCount++;
             nextDay_dt.setUTCDate(nextDay_dt.getUTCDate() + 1);
             nextDay_dt.setUTCHours(12,0,0,0);
-          }else {
-            //console.log('not equal');
           }
       });
     },
@@ -67,4 +65,26 @@ $(document).ready(function(){
 
     }
   });
+
+
+  //kp index data
+
+  $.ajax({
+     url: '/api/',
+     type: 'GET',
+     dataType: 'json',
+     data: {
+       PlanetaryKp: true
+     },
+     success: function(data){
+           if (data.length > 0){
+              console.log(data);
+              //plot kp 24h bar chart
+            }
+         },
+     error: function(a, b, c){
+         console.log(a);
+     }
+   });
+
 });
