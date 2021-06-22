@@ -93,10 +93,17 @@
                     </div>
                     <!--weather card ends-->
                 </div>
-                <div class="d-flex" style="float: right;">
-                  <table id="tbl-kp-index" class="cell-border" style="width:100%">
-                  </table>
-                </div>
+       <!-- float: right;max-width: 41%; -->
+                <div class="col" style="">
+                  <div class="" style="margin: 0 0px 25px 0px;">
+                    <img src="https://services.swpc.noaa.gov/images/aurora-forecast-southern-hemisphere.jpg" alt="">
+                    <!-- https://services.swpc.noaa.gov/images/aurora-forecast-southern-hemisphere.jpg -->
+                  </div>
+                  <div class="">
+                    <img src="https://spaceweather.gfz-potsdam.de/fileadmin/kpindex/ql_bar.gif" alt="">
+                    <!-- https://spaceweather.gfz-potsdam.de/fileadmin/kpindex/ql_bar.gif -->
+                  </div>
+              </div>
             </div>
         </div>
     </div>

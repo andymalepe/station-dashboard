@@ -37,10 +37,10 @@ $(document).ready(function(){
       $('#dayOfWeek').text(days[timeseries_dt.getUTCDay()]);
       $('#forecast-weather-date').text(timeseries_dt.getUTCDate() + ' ' +timeseries_dt.toLocaleString('default', { month: 'long' }) + ' ' + timeseries_dt.getUTCFullYear());
       $('#forecast-symbol')[0].src = location.origin+'/images/weathericon/png/'+data.properties.timeseries[0].data.next_1_hours.summary.symbol_code+'.png';
-      $('#forecast-air-temperature').html(data.properties.timeseries[0].data.instant.details.air_temperature.toFixed(0)+' <span class="symbol">°</span>C');
-      $('#forecast-wind-speed').html(data.properties.timeseries[0].data.instant.details.wind_speed.toFixed(0)+' m/s');
-      $('#forecast-relative-humidity').html(data.properties.timeseries[0].data.instant.details.relative_humidity.toFixed(0)+' %');
-      $('#forecast-wind-from-direction').html(data.properties.timeseries[0].data.instant.details.wind_from_direction.toFixed(0)+' <span class="symbol">°</span>');
+      $('#forecast-air-temperature').html('Air Temperature: '+data.properties.timeseries[0].data.instant.details.air_temperature.toFixed(0)+' <span class="symbol">°</span>C');
+      $('#forecast-wind-speed').html('Wind Speed: '+data.properties.timeseries[0].data.instant.details.wind_speed.toFixed(0)+' m/s');
+      $('#forecast-relative-humidity').html('Humidity: '+data.properties.timeseries[0].data.instant.details.relative_humidity.toFixed(0)+' %');
+      $('#forecast-wind-from-direction').html('Wind Direction'+data.properties.timeseries[0].data.instant.details.wind_from_direction.toFixed(0)+' <span class="symbol">°</span>');
       //loop through time series for future firecasts
       let forecastCount = 0;
       const maxForecastCount = 7;

@@ -96,14 +96,46 @@
  }
 
  if (isset($_GET['PlanetaryKp']) && $_GET['PlanetaryKp'] !== null) {
-    $url = 'https://services.swpc.noaa.gov/text/daily-geomagnetic-indices.txt';
-    $curl = curl_init();
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, True);
-    curl_setopt($curl, CURLOPT_URL, $url);
-    $return = curl_exec($curl);
-    curl_close($curl);
-    // get last PlanetaryKp into array
-    echo json_encode($return);
+    // $url = 'https://services.swpc.noaa.gov/text/daily-geomagnetic-indices.txt';
+    // $curl = curl_init();
+    // curl_setopt($curl, CURLOPT_RETURNTRANSFER, True);
+    // curl_setopt($curl, CURLOPT_URL, $url);
+    // $return = curl_exec($curl);
+    // curl_close($curl);
+    // // get last PlanetaryKp into array
+    // echo json_encode($return);
+//     $kp_ap_data = fopen('Kp_ap_Ap_SN_F107_format.txt', 'r');
+//     $ftp_server = "ftp.example.com";
+// $ftp_conn = ftp_connect($ftp_server) or die("Could not connect to $ftp_server");
+// $login = ftp_login($ftp_conn, $ftp_username, $ftp_userpass);
+//
+// $local_file = "local.zip";
+// $server_file = "server.zip";
+//
+// // download server file
+// if (ftp_get($ftp_conn, $local_file, $server_file, FTP_ASCII))
+//   {
+//   echo "Successfully written to $local_file.";
+//   }
+// else
+//   {
+//   echo "Error downloading $server_file.";
+//   }
+//
+// // close connection
+// ftp_close($ftp_conn);
+
+//end of file
+$fp = fopen("Kp_ap_Ap_SN_F107_nowcast.txt");
+fseek($fp, -1, SEEK_END);
+$pos = ftell($fp);
+$LastLine = "";
+// Loop backword util "\n" is found.
+while((($C = fgetc($fp)) != "\n") && ($pos > 0)) {
+    $LastLine = $C.$LastLine;
+    fseek($fp, $pos--);
+}
+fclose($fp);
  }
 
 ?>

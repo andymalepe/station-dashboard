@@ -1,0 +1,70 @@
+# PURPOSE: This file distributes the geomagnetic planetary three-hour index Kp and associated geomagnetic indices as well as relevant solar indices.
+# LICENSE: CC BY 4.0, except for the sunspot numbers contained in this file, which have the CC BY-NC 4.0 license
+# SOURCE: Geomagnetic Observatory Niemegk, GFZ German Research Centre for Geosciences
+# PLEASE CITE: Matzka, J., Stolle, C., Yamazaki, Y., Bronkalla, O. and Morschhauser, A., 2021. The geomagnetic Kp index 
+# and derived indices of geomagnetic activity. Space Weather, https://doi.org/10.1029/2020SW002641
+#
+# Kp, ap and Ap
+# The three-hourly equivalent planetary amplitude ap is derived from Kp and the daily equivalent planetary amplitude Ap is the daily mean of ap.
+# Kp is unitless. Ap and ap are unitless and can be multiplied by 2 nT to yield the average geomagnetic disturbance at 50 degree geomagnetic latitude.
+# Kp, ap and Ap were introduced by Bartels (1949, 1957) and are produced by Geomagnetic Observatory Niemegk, GFZ German Research Centre for Geosciences.
+# Described in: Matzka et al. (2021), see reference above.
+# Data publication: Matzka, J., Bronkalla, O., Tornow, K., Elger, K. and Stolle, C., 2021. Geomagnetic Kp index. V. 1.0. GFZ Data Services, 
+# https://doi.org/10.5880/Kp.0001
+# Note: the most recent values are nowcast values and will be replaced by definitive values as soon as they become available.
+# 
+# International Sunspot Number SN
+# The international sunspot number SN (written with subscript N) is given as the daily total sunspot number version 2.0 introduced in 2015.
+# The sunspot data is available under the licence CC BY-NC 4.0 from WDC-SILSO, Royal Observatory of Belgium, Brussels. Described in:
+# Clette, F., Lefevre, L., 2016. The New Sunspot Number: assembling all corrections. Solar Physics, 291, https://doi.org/10.1007/s11207-016-1014-y 
+# Note: the most recent values are preliminary and replaced by definitive values as soon as they become available.
+#
+# F10.7 Solar Radio Flux
+# Local noon-time observed (F10.7obs) and adjusted (F10.7adj) solar radio flux F10.7 in s.f.u. (10^-22 W m^-2 Hz^-1) is provided by 
+# Dominion Radio Astrophysical Observatory and Natural Resources Canada.
+# Described in: Tapping, K.F., 2013. The 10.7 cm solar radio flux (F10.7). Space Weather, 11, 394-406, https://doi.org/10.1002/swe.20064 
+# Note: For ionospheric and atmospheric studies the use of F10.7obs is recommended.
+# 
+# Short file description (for a detailed file description, see Kp_ap_Ap_SN_F107_format.txt):
+# 40 header lines, all starting with #
+# ASCII, blank separated and fixed length, missing data indicated by -1.000 for Kp, -1 for ap and SN, -1.0 for F10.7
+# YYYY MM DD is date of UT day, days is days since 1932-01-01 00:00 UT to start of UT day, days_m is days since 1932-01-01 00:00 UT to midday of UT day
+# BSR is Bartels solar rotation number, dB is day within BSR 
+# Kp1 to Kp8 (Kp for the eight eighth of the UT day), ap1 to ap8 (ap for the eight eighth of the UT day), Ap, SN, F10.7obs, F10.7adj
+# D indicates if the Kp and SN values are definitive or preliminary. D=0: Kp and SN preliminary; D=1: Kp definitive, SN preliminary; D=2 Kp and SN definitive
+#
+#
+# The format for each line is (i stands for integer, f for float):
+#iii ii ii iiiii fffff.f iiii ii ff.fff ff.fff ff.fff ff.fff ff.fff ff.fff ff.fff ff.fff iiii iiii iiii iiii iiii iiii iiii iiii  iiii iii ffffff.f ffffff.f i
+# The parameters in each line are:
+#YYY MM DD  days  days_m  Bsr dB    Kp1    Kp2    Kp3    Kp4    Kp5    Kp6    Kp7    Kp8  ap1  ap2  ap3  ap4  ap5  ap6  ap7  ap8    Ap  SN F10.7obs F10.7adj D
+2021 05 11 32638 32638.5 2561  5  1.667  1.000  0.333  0.333  0.333  0.000  0.333  0.333    6    4    2    2    2    0    2    2     2  32     76.1     77.6 1
+2021 05 12 32639 32639.5 2561  6  1.000  1.000  4.000  4.333  7.000  6.667  2.000  3.000    4    4   27   32  132  111    7   15    42  33     74.7     76.3 1
+2021 05 13 32640 32640.5 2561  7  2.000  1.667  1.667  1.333  2.000  1.000  1.333  2.000    7    6    6    5    7    4    5    7     6  30     74.7     76.3 1
+2021 05 14 32641 32641.5 2561  8  0.333  0.667  0.667  0.000  0.333  1.000  1.333  2.000    2    3    3    0    2    4    5    7     3  26     70.9     72.4 1
+2021 05 15 32642 32642.5 2561  9  3.333  1.333  2.333  1.667  1.333  1.000  0.667  1.000   18    5    9    6    5    4    3    4     7  28     73.3     74.9 1
+2021 05 16 32643 32643.5 2561 10  0.667  0.000  0.667  1.333  1.333  0.667  1.667  0.667    3    0    3    5    5    3    6    3     4  13     73.2     74.9 1
+2021 05 17 32644 32644.5 2561 11  0.667  1.000  1.333  1.000  1.000  2.000  2.000  2.000    3    4    5    4    4    7    7    7     5  14     74.8     76.5 1
+2021 05 18 32645 32645.5 2561 12  2.667  3.667  2.667  2.333  1.667  1.000  0.667  0.333   12   22   12    9    6    4    3    2     9  28     76.4     78.2 1
+2021 05 19 32646 32646.5 2561 13  1.667  0.667  1.333  0.667  1.000  0.667  1.333  2.333    6    3    5    3    4    3    5    9     5  27     75.9     77.7 1
+2021 05 20 32647 32647.5 2561 14  2.667  2.000  2.333  4.333  5.333  4.000  4.000  3.333   12    7    9   32   56   27   27   18    24  20     72.3     74.0 1
+2021 05 21 32648 32648.5 2561 15  2.333  1.667  2.000  1.667  1.000  1.000  1.000  0.667    9    6    7    6    4    4    4    3     5  14     73.7     75.5 1
+2021 05 22 32649 32649.5 2561 16  1.333  0.667  1.000  1.000  1.000  1.000  2.000  0.667    5    3    4    4    4    4    7    3     4  19     75.6     77.5 1
+2021 05 23 32650 32650.5 2561 17  0.333  1.000  0.667  1.000  0.667  0.333  0.667  1.333    2    4    3    4    3    2    3    5     3  27     79.0     81.0 1
+2021 05 24 32651 32651.5 2561 18  1.333  0.333  0.000  0.667  0.333  0.333  0.333  0.000    5    2    0    3    2    2    2    0     2  31     72.7     74.5 1
+2021 05 25 32652 32652.5 2561 19  0.333  0.333  0.000  0.333  0.667  1.000  0.333  1.333    2    2    0    2    3    4    2    5     2  41     83.5     85.7 1
+2021 05 26 32653 32653.5 2561 20  0.667  1.000  1.000  1.000  2.667  3.000  4.667  3.000    3    4    4    4   12   15   39   15    12  41     88.0     90.3 1
+2021 05 27 32654 32654.5 2561 21  4.333  3.000  4.000  3.000  2.000  2.333  2.000  1.000   32   15   27   15    7    9    7    4    14  42     83.3     85.5 1
+2021 05 28 32655 32655.5 2561 22  0.333  0.667  0.000  0.333  0.667  0.333  0.333  0.000    2    3    0    2    3    2    2    0     2  30     77.4     79.5 1
+2021 05 29 32656 32656.5 2561 23  0.000  0.333  0.667  2.333  2.000  1.000  2.333  1.667    0    2    3    9    7    4    9    6     5  14     76.0     78.1 1
+2021 05 30 32657 32657.5 2561 24  1.000  0.667  1.000  1.333  0.667  1.000  1.667  2.333    4    3    4    5    3    4    6    9     5  28     74.4     76.5 1
+2021 05 31 32658 32658.5 2561 25  0.667  0.667  0.667  0.000  0.333  0.667  0.333  0.000    3    3    3    0    2    3    2    0     2  29     81.7     84.0 1
+2021 06 01 32659 32659.5 2561 26  1.000  0.333  0.333  0.000  0.333  0.000  0.333  0.333    4    2    2    0    2    0    2    2     2  20     75.2     77.3 0
+2021 06 02 32660 32660.5 2561 27  0.000  0.667  0.000  0.333  3.000  1.667  1.333  1.333    0    3    0    2   15    6    5    5     4  29     76.3     78.5 0
+2021 06 03 32661 32661.5 2562  1  2.000  1.667  2.667  1.667  1.000  1.333  0.667  0.000    7    6   12    6    4    5    3    0     5  30     75.5     77.7 0
+2021 06 04 32662 32662.5 2562  2  1.000  1.333  0.667  1.000  1.000  0.667  1.333  1.000    4    5    3    4    4    3    5    4     4  33     77.1     79.4 0
+2021 06 05 32663 32663.5 2562  3  0.333  0.667  0.667  0.667  1.333  0.333  1.333  1.667    2    3    3    3    5    2    5    6     4  38     74.4     76.6 0
+2021 06 06 32664 32664.5 2562  4  2.333  1.333  0.667  0.333  0.000  0.667  1.000  1.667    9    5    3    2    0    3    4    6     4  38     77.4     79.7 0
+2021 06 07 32665 32665.5 2562  5  0.667  1.667  2.333  2.000  2.667  2.667  3.333  3.667    3    6    9    7   12   12   18   22    11  50     80.8     83.2 0
+2021 06 08 32666 32666.5 2562  6  2.000  2.000  2.000  0.667  0.333  0.333  1.333  1.000    7    7    7    3    2    2    5    4     5  36     79.9     82.3 0
+2021 06 09 32667 32667.5 2562  7  1.333  1.333  1.000  0.333 -1.000 -1.000 -1.000 -1.000    5    5    4    2   -1   -1   -1   -1    -1  26     -1.0     -1.0 0
