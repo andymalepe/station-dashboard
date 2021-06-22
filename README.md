@@ -1,3 +1,5 @@
+Author: Kagiso Malepe (kagisoandy@gmail.com)
+
 # Station Dashboard (Marion/SANAE IV)
 
 Dashboard layout for a station. Currently has Station sign out page and admin login front-end styling.

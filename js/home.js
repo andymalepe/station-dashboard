@@ -22,7 +22,7 @@ $(document).ready(function(){
 
   $.ajax({
     //url: 'https://api.met.no/weatherapi/locationforecast/2.0/compact?lat='+lat+'&lon='+lon+'&altitude='+altitude,
-    url: '../js/forecast.json',
+    url: 'https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=-71.6703&lon=-2.8377&altitude=850',
     type: 'GET',
     dataType: 'json',
     success: function(data){
