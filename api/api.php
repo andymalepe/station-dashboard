@@ -1,12 +1,13 @@
 <?php
+
  require_once('../config.php');
 
  function startPDO(){
-    $options = [
+    $options = array(
        \PDO::ATTR_ERRMODE            => \PDO::ERRMODE_EXCEPTION,
        \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
        \PDO::ATTR_EMULATE_PREPARES   => false,
-    ];
+    );
 
     $dsn = "mysql:host=".DB_HOST.";dbname=".DB_DATABASE.";charset=".CHARSET;
     try {
@@ -61,7 +62,7 @@
        $stmt = $pdo->prepare("INSERT INTO signout_log (UserId, AreaId, OutTime, SignedIn) VALUES (?,?,NOW(),?)");
         try {
             $pdo->beginTransaction();
-            $stmt->execute([$UserId, $AreaId, $signedIn]);
+            $stmt->execute(array($UserId, $AreaId, $signedIn));
             $pdo->commit();
             echo json_encode(true);
         }catch (Exception $e){
@@ -83,7 +84,7 @@
       try {
           foreach ($LogIds as $key) {
             $pdo->beginTransaction();
-            $stmt->execute([$signedIn, intval($key)]);
+            $stmt->execute(array($signedIn, intval($key)));
             $pdo->commit();
           }
           echo json_encode(200);
@@ -126,16 +127,23 @@
 // ftp_close($ftp_conn);
 
 //end of file
-$fp = fopen("Kp_ap_Ap_SN_F107_nowcast.txt");
-fseek($fp, -1, SEEK_END);
-$pos = ftell($fp);
-$LastLine = "";
-// Loop backword util "\n" is found.
-while((($C = fgetc($fp)) != "\n") && ($pos > 0)) {
-    $LastLine = $C.$LastLine;
-    fseek($fp, $pos--);
-}
-fclose($fp);
+    $fp = fopen("Kp_ap_Ap_SN_F107_nowcast.txt");
+    fseek($fp, -1, SEEK_END);
+    $pos = ftell($fp);
+    $LastLine = "";
+    // Loop backword util "\n" is found.
+    while((($C = fgetc($fp)) != "\n") && ($pos > 0)) {
+        $LastLine = $C.$LastLine;
+        fseek($fp, $pos--);
+    }
+    fclose($fp);
  }
+
+ // if (isset($_GET['cookingRoster']) && $_GET['cookingRoster'] !== null) {
+ //   (isset($_GET['generateRoster']) && $_GET['generateRoster'] !== null) {
+ //     // write into roster table for  the current month
+ //   }
+ //   //retrieve from the roster db table
+ // }
 
 ?>

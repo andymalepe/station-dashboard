@@ -3,3 +3,5 @@ RewriteRule ^api/?$ api/api.php
 RewriteRule ^signout/?$ pages/signout.php
 RewriteRule ^login/?$ pages/login.php
 RewriteRule ^home/?$ pages/home.php
+RewriteRule ^/?$ pages/home.php
+RewriteRule ^store/?$ pages/store.php

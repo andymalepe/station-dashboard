@@ -1,7 +1,7 @@
 <nav class="navbar navbar-light sticky-top bg-light justify-content-center nav-station-logo">
   <a class="navbar-brand navbar-text" href="#">
-    <img src="../images/s60-logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
-    SANAE IV
+    <img src="../images/sanap-logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    SANAE IV STATION
   </a>
 </nav>
 
@@ -11,23 +11,30 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
+      <li class="nav-item active" id="home">
         <a class="nav-link" href="/home/">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link disabled" href="#">Dashboard</a>
+      </li> -->
+
+      <li class="nav-item" id="signout">
+        <a class="nav-link" href="/signout/">Station Sign Out</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Weather</a>
+      <li class="nav-item" id="admin">
+        <a class="nav-link" href="/login/">Admin</a>
+      </li>
+      <li class="nav-item" id="store">
+        <a class="nav-link disabled" href="/store/">Food Store</a>
       </li>
     </ul>
   </div>
   <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-    <li class="nav-item">
+    <!-- <li class="nav-item">
       <a class="btn btn-outline-success my-2 my-sm-0 page-elements-right-margin" href="/login/">Admin</a>
-    </li>
-    <li class="nav-item">
+    </li> -->
+    <!-- <li class="nav-item">
       <a class="btn btn-outline-success my-2 my-sm-0" href="/signout/">Station Sign Out</a>
-    </li>
+    </li> -->
   </ul>
 </nav>

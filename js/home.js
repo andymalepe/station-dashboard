@@ -2,6 +2,9 @@
 // https://services.swpc.noaa.gov/images/aurora-forecast-southern-hemisphere.jpg
 //https://services.swpc.noaa.gov/text/daily-geomagnetic-indices.txt
 $(document).ready(function(){
+  $('li.nav-item.active').removeClass('active');
+  $('#home').addClass('active');
+
   let equal_dates = function(dt1, dt2){
      if (dt1 > dt2) return false;
      else if (dt1 < dt2) return false;
@@ -22,7 +25,7 @@ $(document).ready(function(){
 
   $.ajax({
     //url: 'https://api.met.no/weatherapi/locationforecast/2.0/compact?lat='+lat+'&lon='+lon+'&altitude='+altitude,
-    url: 'https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=-71.6703&lon=-2.8377&altitude=850',
+    url: '../js/forecast.json',
     type: 'GET',
     dataType: 'json',
     success: function(data){
@@ -40,7 +43,7 @@ $(document).ready(function(){
       $('#forecast-air-temperature').html('Air Temperature: '+data.properties.timeseries[0].data.instant.details.air_temperature.toFixed(0)+' <span class="symbol">°</span>C');
       $('#forecast-wind-speed').html('Wind Speed: '+data.properties.timeseries[0].data.instant.details.wind_speed.toFixed(0)+' m/s');
       $('#forecast-relative-humidity').html('Humidity: '+data.properties.timeseries[0].data.instant.details.relative_humidity.toFixed(0)+' %');
-      $('#forecast-wind-from-direction').html('Wind Direction'+data.properties.timeseries[0].data.instant.details.wind_from_direction.toFixed(0)+' <span class="symbol">°</span>');
+      $('#forecast-wind-from-direction').html('Wind Direction: '+data.properties.timeseries[0].data.instant.details.wind_from_direction.toFixed(0)+' <span class="symbol">°</span>');
       //loop through time series for future firecasts
       let forecastCount = 0;
       const maxForecastCount = 7;

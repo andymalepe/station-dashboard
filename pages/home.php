@@ -96,11 +96,11 @@
        <!-- float: right;max-width: 41%; -->
                 <div class="col" style="">
                   <div class="" style="margin: 0 0px 25px 0px;">
-                    <img src="https://services.swpc.noaa.gov/images/aurora-forecast-southern-hemisphere.jpg" alt="">
+                    <img src="../images/aurora-forecast-southern-hemisphere.jpg" alt="">
                     <!-- https://services.swpc.noaa.gov/images/aurora-forecast-southern-hemisphere.jpg -->
                   </div>
                   <div class="">
-                    <img src="https://spaceweather.gfz-potsdam.de/fileadmin/kpindex/ql_bar.gif" alt="">
+                    <img src="../images/ql_bar.gif" alt="">
                     <!-- https://spaceweather.gfz-potsdam.de/fileadmin/kpindex/ql_bar.gif -->
                   </div>
               </div>
@@ -109,8 +109,6 @@
     </div>
 
     <?php require_once('../includes/scripts.php'); ?>
-    <script type="text/javascript" src="../js/home.js">
-
-    </script>
+    <script type="text/javascript" src="../js/home.js"></script>
   </body>
 </html>

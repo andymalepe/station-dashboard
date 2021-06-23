@@ -1,4 +1,6 @@
 $(document).ready(function() {
+  $('li.nav-item.active').removeClass('active');
+  $('#signout').addClass('active');
 
     let rowData = [];
     let logTable = {};
