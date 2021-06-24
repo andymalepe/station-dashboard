@@ -13,7 +13,7 @@
         <div class="col">
         </div>
         <div class="col-md-auto div-sign-out-title">
-         <!-- Food Sign Out -->
+         <!-- Food Sign Out Page -->
         </div>
         <div class="col">
         </div>
@@ -47,21 +47,7 @@
         <div class="col">
         </div>
       </div>
-      <!-- <div class="row">
-        <div class="col">
-        </div>
-        <div class="col-md-auto justify-content-md-center">
-          <button type="button" class="btn btn-outline-success disabled" id="btn-user-area-sign-in">Sign In</button>
-        </div>
-        <div class="col">
-        </div>
-      </div> -->
     </div>
-
-    <!-- Button trigger modal -->
-    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-      Launch demo modal
-    </button> -->
 
     <!-- Standard Modal -->
     <div class="modal fade" id="store-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
