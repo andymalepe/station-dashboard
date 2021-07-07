@@ -79,19 +79,19 @@
         <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
           <ul class="list-group" id="store-items-list">
             <li class="list-group-item d-flex justify-content-between align-items-center">
-              Cras justo odio
-              <span class="badge badge-primary badge-pill">14</span>
+              Coffee
+              <span class="badge badge-primary badge-pill">63</span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
-              Dapibus ac facilisis in
-              <span class="badge badge-primary badge-pill">2</span>
+              Beans
+              <span class="badge badge-primary badge-pill">78</span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
-              Morbi leo risus
+              Spaghetti
               <!-- <span class="badge badge-primary badge-pill">
                 <img src="../images/icons8-add-80.png" alt="">
               </span> -->
-              <span class="badge badge-primary badge-pill">1</span>
+              <span class="badge badge-primary badge-pill">78</span>
             </li>
           </ul>
         </main>
