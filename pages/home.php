@@ -94,8 +94,8 @@
                     <!--weather card ends-->
                 </div>
        <!-- float: right;max-width: 41%; -->
-                <div class="col" style="">
-                  <div class="" style="margin: 0 0px 25px 0px;">
+                <div class="col aurora-forecast-col">
+                  <div class="aurora-forecast-img">
                     <img src="../images/aurora-forecast-southern-hemisphere.jpg" alt="">
                     <!-- https://services.swpc.noaa.gov/images/aurora-forecast-southern-hemisphere.jpg -->
                   </div>
@@ -104,11 +104,26 @@
                     <!-- https://spaceweather.gfz-potsdam.de/fileadmin/kpindex/ql_bar.gif -->
                   </div>
               </div>
+
+              <div class="col station-stats-col">
+                <div class="row currency-stats" >
+                  <h5 class="display-3">Currency</h5>
+                  <h5 class="display-3" id="ZAR_USD"></h5>
+                  <h5 class="display-3" id="ZAR_EUR"></h5>
+                  <h5 class="display-3" id="USD_BTC"></h5>
+                </div>
+                <div class="row bandwidth-stats">
+                  <h5 class="display-3">Station Bandwidth</h5>
+                  <h5 class="display-3" id="modem-rx"></h5>
+                  <h5 class="display-3" id="modem-tx"></h5>
+                </div>
+            </div>
             </div>
         </div>
     </div>
 
     <?php require_once('../includes/scripts.php'); ?>
+    <script type="text/javascript" src="../js/functions.js"></script>
     <script type="text/javascript" src="../js/home.js"></script>
   </body>
 </html>

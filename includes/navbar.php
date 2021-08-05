@@ -14,18 +14,18 @@
       <li class="nav-item active" id="home">
         <a class="nav-link" href="/home/">Home <span class="sr-only">(current)</span></a>
       </li>
-      <!-- <li class="nav-item">
-        <a class="nav-link disabled" href="#">Dashboard</a>
-      </li> -->
+      <li class="nav-item active" id="weather">
+        <a class="nav-link" href="/forecast/">Weather </a>
+      </li>
 
       <li class="nav-item" id="signout">
-        <a class="nav-link" href="/signout/">Station Sign Out</a>
+        <a class="nav-link" href="/signout/">Station Sign Out </a>
       </li>
       <li class="nav-item" id="admin">
-        <a class="nav-link" href="/login/">Admin</a>
+        <a class="nav-link" href="/login/">Admin </a>
       </li>
       <li class="nav-item" id="store">
-        <a class="nav-link disabled" href="/store/">Food Store</a>
+        <a class="nav-link disabled" href="/store/">Food Store </a>
       </li>
     </ul>
   </div>

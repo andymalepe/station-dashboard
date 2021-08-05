@@ -1,0 +1,9 @@
+.container{
+  max-width: 100%;
+}
+.col-lg-8{
+  max-width: 48%;
+}
+.station-amps{
+  max-width: 43%;
+}

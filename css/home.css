@@ -121,7 +121,7 @@ p {
 }
 
 .display-3 {
-    font-size: 1.5rem
+    font-size: 1.1rem
 }
 
 .card-weather .card-body {
@@ -147,4 +147,52 @@ p {
 
 .card-weather .weekly-weather .weekly-weather-item i {
     font-size: 1.2rem
+}
+
+.container{
+    max-width: 100%;
+}
+
+.col-lg-8{
+    max-width: 45.666667%;
+}
+.col{
+    max-width: 30%;
+}
+.aurora-forecast-col{
+  max-width: 35%;
+}
+.aurora-forecast-col.aurora-forecast-img{
+  margin: 0 0px 25px 0px;
+}
+.station-stats-col{
+  max-width: 20%;
+  padding-left: 30px;
+}
+.station-stats-col.currency-stats{
+  display: block;
+  padding-bottom: 30px;
+}
+.bandwidth-stats, .currency-stats{
+  display: block;
+  padding-bottom: 15px;
+}
+@media only screen and (max-width: 1024px) {
+  .col-lg-8{
+    max-width: 100%;
+  }
+  .aurora-forecast-col{
+    max-width: 34%;
+  }
+  .display-3 {
+    font-size: 1.0rem;
+  }
+}
+@media only screen and (max-width: 796px) {
+  .aurora-forecast-col, .station-stats-col{
+    max-width: 100%;
+  }
+  .display-3 {
+    font-size: 0.8rem;
+  }
 }

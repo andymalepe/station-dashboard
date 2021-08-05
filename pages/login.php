@@ -19,7 +19,7 @@
           <div class="main">
              <div class="col-md-6 col-sm-12">
                 <div class="login-form">
-                   <form>
+                   <form id="login-form">
                       <div class="form-group">
                          <label>User Name</label>
                          <input type="text" class="form-control" placeholder="User Name">
@@ -28,7 +28,7 @@
                          <label>Password</label>
                          <input type="password" class="form-control" placeholder="Password">
                       </div>
-                      <button type="submit" class="btn btn-outline-success">Login</button>
+                      <button id="btn-admin-login" type="submit" class="btn btn-outline-success">Login</button>
                       <a id="btn-admin-login-cancel" class="btn btn-outline-danger" href="/home/">Cancel</a>
                    </form>
                 </div>

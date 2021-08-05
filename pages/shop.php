@@ -68,11 +68,11 @@
                 Basket
               </a> -->
             </div>
-            <!-- <div class="bd-toc-item">
+            <div class="bd-toc-item">
               <a class="bd-toc-link" href="/docs/4.0/layout/overview/">
                 Layout
               </a>
-            </div> -->
+            </div>
           </div>
         </div>
 

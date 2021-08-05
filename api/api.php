@@ -127,16 +127,16 @@
 // ftp_close($ftp_conn);
 
 //end of file
-    $fp = fopen("Kp_ap_Ap_SN_F107_nowcast.txt");
-    fseek($fp, -1, SEEK_END);
-    $pos = ftell($fp);
-    $LastLine = "";
-    // Loop backword util "\n" is found.
-    while((($C = fgetc($fp)) != "\n") && ($pos > 0)) {
-        $LastLine = $C.$LastLine;
-        fseek($fp, $pos--);
-    }
-    fclose($fp);
+    // $fp = fopen("Kp_ap_Ap_SN_F107_nowcast.txt");
+    // fseek($fp, -1, SEEK_END);
+    // $pos = ftell($fp);
+    // $LastLine = "";
+    // // Loop backword util "\n" is found.
+    // while((($C = fgetc($fp)) != "\n") && ($pos > 0)) {
+    //     $LastLine = $C.$LastLine;
+    //     fseek($fp, $pos--);
+    // }
+    // fclose($fp);
  }
 
  // if (isset($_GET['cookingRoster']) && $_GET['cookingRoster'] !== null) {
