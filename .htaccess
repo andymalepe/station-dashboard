@@ -3,6 +3,7 @@ RewriteRule ^api/?$ api/api.php
 RewriteRule ^router/?$ api/router.php
 RewriteRule ^signout/?$ pages/signout.php
 RewriteRule ^login/?$ pages/login.php
+RewriteRule ^register/?$ pages/register.php
 RewriteRule ^home/?$ pages/home.php
 RewriteRule ^forecast/?$ pages/weather.php
 RewriteRule ^/?$ pages/home.php

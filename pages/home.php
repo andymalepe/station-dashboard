@@ -107,13 +107,13 @@
 
               <div class="col station-stats-col">
                 <div class="row currency-stats" >
-                  <h5 class="display-3">Currency</h5>
+                  <h5 class="display-3"><strong>Currency</strong></h5>
                   <h5 class="display-3" id="ZAR_USD"></h5>
                   <h5 class="display-3" id="ZAR_EUR"></h5>
                   <h5 class="display-3" id="USD_BTC"></h5>
                 </div>
                 <div class="row bandwidth-stats">
-                  <h5 class="display-3">Station Bandwidth</h5>
+                  <h5 class="display-3"><strong>Station Bandwidth</strong></h5>
                   <h5 class="display-3" id="modem-rx"></h5>
                   <h5 class="display-3" id="modem-tx"></h5>
                 </div>

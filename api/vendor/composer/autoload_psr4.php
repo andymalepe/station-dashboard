@@ -8,5 +8,10 @@ $baseDir = dirname($vendorDir);
 return array(
     'phpseclib\\' => array($vendorDir . '/phpseclib/phpseclib/phpseclib'),
     'RouterOS\\' => array($vendorDir . '/evilfreelancer/routeros-api-php/src'),
+    'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
+    'Laminas\\ZendFrameworkBridge\\' => array($vendorDir . '/laminas/laminas-zendframework-bridge/src'),
+    'Laminas\\Stdlib\\' => array($vendorDir . '/laminas/laminas-stdlib/src'),
+    'Laminas\\Config\\' => array($vendorDir . '/laminas/laminas-config/src'),
+    'Firebase\\JWT\\' => array($vendorDir . '/firebase/php-jwt/src'),
     'DivineOmega\\SSHConnection\\' => array($vendorDir . '/divineomega/php-ssh-connection/src'),
 );

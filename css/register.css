@@ -1,0 +1,9 @@
+@media screen and (min-width: 768px){
+  .main{
+    margin-left: 35%;
+    margin-right: 5%;
+  }
+  .sidenav{
+    width: 30%;
+  }
+}

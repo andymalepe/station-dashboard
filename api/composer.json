@@ -1,5 +1,7 @@
 {
     "require": {
-        "evilfreelancer/routeros-api-php": "^1.4"
+        "evilfreelancer/routeros-api-php": "^1.4",
+        "firebase/php-jwt": "^5.4",
+        "laminas/laminas-config": "^3.5"
     }
 }

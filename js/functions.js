@@ -73,8 +73,8 @@ function loadModemBandwidth(){
     dataType: 'json',
     success: function(data){
       if (data) {
-        $('#modem-rx').html(data.rx + ' Kbps');
-        $('#modem-tx').html(data.tx + ' Kbps');
+        $('#modem-rx').html('Download: ' + data.rx + ' Kbps');
+        $('#modem-tx').html('Upload: ' + data.tx + ' Kbps');
       };
     }
   });

@@ -30,7 +30,7 @@
                 <h5 class="card-title">Shop</h5>
               </div>
             </div>
-            <div class="card border-success" style="width: 18rem;">
+            <div id="update-stock-div" class="card border-success" style="width: 18rem;">
               <img class="card-img-top" src="../images/icons8-renew-80.png" alt="Update">
               <div class="card-body">
                 <h5 class="card-title">Update Stock</h5>
@@ -68,6 +68,7 @@
         </div>
       </div>
     </div>
+
 
     <?php require_once('../includes/scripts.php'); ?>
     <script type="text/javascript" src="../js/store.js"></script>

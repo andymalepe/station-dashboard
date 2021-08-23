@@ -27,7 +27,9 @@ error_reporting(E_ALL);
 // var_dump($response);
 
 require_once('routeros_api.class.php');
-
+$ipRouteros = "172.17.20.10"; //ip router
+$Username="Administrator"; //username
+$Pass="Sanae4@2020"; //password
 $api_port=8729;
 $ARRAY = array();
     $API = new RouterosAPI();
