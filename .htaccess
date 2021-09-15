@@ -1,5 +1,7 @@
 RewriteEngine ON
 RewriteRule ^api/?$ api/api.php
+RewriteRule ^import/?$ api/import.php
+RewriteRule ^inventory/?$ api/inventoryAPI.php
 RewriteRule ^router/?$ api/router.php
 RewriteRule ^signout/?$ pages/signout.php
 RewriteRule ^login/?$ pages/login.php

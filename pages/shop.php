@@ -78,8 +78,8 @@
 
         <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
           <ul class="list-group" id="store-items-list">
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              Coffee
+            <!-- <li class="list-group-item d-flex justify-content-between align-items-center">
+              Example
               <span class="badge badge-primary badge-pill">63</span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -88,11 +88,11 @@
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
               Spaghetti
-              <!-- <span class="badge badge-primary badge-pill">
+              <span class="badge badge-primary badge-pill">
                 <img src="../images/icons8-add-80.png" alt="">
-              </span> -->
+              </span>
               <span class="badge badge-primary badge-pill">78</span>
-            </li>
+            </li> -->
           </ul>
         </main>
     </div>

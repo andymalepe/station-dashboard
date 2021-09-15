@@ -22,11 +22,11 @@
                    <form id="login-form">
                       <div class="form-group">
                          <label>Email Address</label>
-                         <input type="text" class="form-control" placeholder="Email Address">
+                         <input type="text" id="register-form-email-address" class="form-control" placeholder="Email Address">
                       </div>
                       <div class="form-group">
                          <label>Password</label>
-                         <input type="password" class="form-control" placeholder="Password">
+                         <input type="password" id="login-form-password" class="form-control" placeholder="Password">
                       </div>
                       <button id="btn-admin-login" type="submit" class="btn btn-outline-success">Login</button>
                       <a id="btn-admin-login-cancel" class="btn btn-outline-danger" href="/home/">Cancel</a>

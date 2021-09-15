@@ -59,8 +59,12 @@
             </button>
           </div>
           <div class="modal-body" id="store-modal-body">
-            ...
-
+            <form>
+             <div class="form-group">
+               <label for="exampleFormControlFile1">Example file input</label>
+               <input type="file" class="form-control-file" id="exampleFormControlFile1">
+             </div>
+            </form>
           </div>
           <div class="modal-footer  justify-content-md-center">
             <button type="button" class="btn btn btn-outline-success" data-dismiss="modal">Ok</button>
