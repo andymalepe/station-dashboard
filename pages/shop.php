@@ -37,12 +37,16 @@
           <li class="nav-item" id="store">
             <a class="nav-link disabled" href="/store/">Food Store</a>
           </li>
+          <!-- <li class="nav-item">
+            <input class="form-control mr-sm-2" id="fld-search" type="search" placeholder="Search food item" aria-label="Search">
+            <button type="button" class="btn btn-outline-success" id="search-store">Search</button>
+          </li> -->
         </ul>
 
-        <form class="form-inline my-2 my-lg-0">
+        <!-- <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" id="fld-search" type="search" placeholder="Search" aria-label="Search">
             <button type="button" class="btn btn-outline-success" id="search-store">Search</button>
-        </form>
+        </form> -->
       </div>
 
 
@@ -59,25 +63,33 @@
 
 
     <div class="container-fluid">
-        <div class="row flex-xl-nowrap">
+        <div class="row flex-xl-nowrap" style="float: left; padding-top: 1rem !important;">
           <div class="col-12 col-md-3 col-xl-2 bd-sidebar">
 
-
-            <div class="bd-toc-item">
-              <!-- <a class="bd-toc-link" href="/docs/4.0/getting-started/introduction/">
+            <input class="form-control mr-sm-2" id="fld-search" type="search" placeholder="Search food item" aria-label="Search">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend" data-show-subtext="true" data-live-search="true">
+                  <label class="input-group-text" for="inputGroupSelect01">Category</label>
+                </div>
+                <select class="custom-select page-elements-right-margin" id="sel-category-name" data-show-subtext="true" data-live-search="true">
+                  <option selected>Choose user</option>
+                </select>
+            </div>
+            <!-- <div class="bd-toc-item">
+              <a class="bd-toc-link" href="/docs/4.0/getting-started/introduction/">
                 Basket
-              </a> -->
+              </a>
             </div>
             <div class="bd-toc-item">
               <a class="bd-toc-link" href="/docs/4.0/layout/overview/">
                 Layout
               </a>
-            </div>
+            </div> -->
           </div>
         </div>
 
-        <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
-          <ul class="list-group" id="store-items-list">
+        <main class="bd-content" role="main">
+          <ul class="list-group" id="store-items-list" style="padding-top: 1rem !important;">
             <!-- <li class="list-group-item d-flex justify-content-between align-items-center">
               Example
               <span class="badge badge-primary badge-pill">63</span>
