@@ -53,7 +53,7 @@
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
         <li class="nav-item">
-          <a class="my-2 my-sm-0 page-elements-right-margin" href="/basket/">
+          <a class="my-2 my-sm-0 page-elements-right-margin" id="shop-basket">
             <img src="../images/icons8-buying-48.png" width="32" alt="">
 
           </a>
@@ -67,14 +67,14 @@
           <div class="col-12 col-md-3 col-xl-2 bd-sidebar">
 
             <input class="form-control mr-sm-2" id="fld-search" type="search" placeholder="Search food item" aria-label="Search">
-            <div class="input-group mb-3">
+            <!-- <div class="input-group mb-3">
                 <div class="input-group-prepend" data-show-subtext="true" data-live-search="true">
                   <label class="input-group-text" for="inputGroupSelect01">Category</label>
                 </div>
                 <select class="custom-select page-elements-right-margin" id="sel-category-name" data-show-subtext="true" data-live-search="true">
                   <option selected>Choose user</option>
                 </select>
-            </div>
+            </div> -->
             <!-- <div class="bd-toc-item">
               <a class="bd-toc-link" href="/docs/4.0/getting-started/introduction/">
                 Basket
@@ -123,7 +123,8 @@
 
           </div>
           <div class="modal-footer  justify-content-md-center">
-            <button type="button" class="btn btn btn-outline-success" data-dismiss="modal">Ok</button>
+            <button type="button" class="btn btn btn-outline-danger" data-dismiss="modal" id="checkout-cancel">Cancel</button>
+            <button type="button" class="btn btn btn-outline-success" data-dismiss="modal" id="checkout-items">Checkout</button>
           </div>
         </div>
       </div>
