@@ -12,3 +12,6 @@
 #store-items-list .list-group-item{
   padding: 0.25rem 1.25rem;
 }
+#add-to-checkout-items{
+  display: none;
+}

@@ -11,7 +11,30 @@ $(document).ready(function() {
      success: function(inventory){
            if (inventory.length > 0){
               $.each(inventory, function(index, inventoryItem){
-                $('#store-items-list').append('<li class="list-group-item justify-content-between align-items-center" style="display: flex;">'+inventoryItem.food_inventory_description+'<span class="badge badge-primary badge-pill">'+inventoryItem.food_inventory_items_count+'</span></li>');
+                //display item id and hide it
+                $('#store-items-list').append('\
+                <li \
+                  class="list-group-item justify-content-between align-items-center" \
+                  style="display: flex;" \
+                  data-id='+inventoryItem.food_inventory_id+
+                  ' data-g='+inventoryItem.food_inventory_grams+
+                  ' data-ml='+inventoryItem.food_inventory_ml+
+                  ' data-count='+inventoryItem.food_inventory_items_count+'>'+
+                  inventoryItem.food_inventory_description+
+                  '<span class="badge badge-primary badge-pill">'+
+                    inventoryItem.food_inventory_items_count+
+                  '</span> \
+                </li>');
+              });
+
+              // add to cart functionality
+              $('#store-items-list li').on('click', function(){
+                $('#store-modal-body').html($(this)[0].outerText+'<br>'+
+                  $(this).data().g+' grams<br>'+
+                  $(this).data().ml+' ml<br>'+
+                  'In stock: '+$(this).data().count);
+                $('#add-to-checkout-items').show();
+                $('#store-modal').modal('toggle');
               });
             }
          },
@@ -34,6 +57,8 @@ $(document).ready(function() {
    });
 
    $('#checkout-items').on('click', function(){
+     // retrieve basket from memory
+
      $.ajax({
         url: '/inventory/',
         type: 'GET',
@@ -54,6 +79,7 @@ $(document).ready(function() {
         }
       });
    });
+
 
 
 });

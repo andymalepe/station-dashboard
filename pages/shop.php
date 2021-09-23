@@ -90,22 +90,9 @@
 
         <main class="bd-content" role="main">
           <ul class="list-group" id="store-items-list" style="padding-top: 1rem !important;">
-            <!-- <li class="list-group-item d-flex justify-content-between align-items-center">
-              Example
-              <span class="badge badge-primary badge-pill">63</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              Beans
-              <span class="badge badge-primary badge-pill">78</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              Spaghetti
-              <span class="badge badge-primary badge-pill">
-                <img src="../images/icons8-add-80.png" alt="">
-              </span>
-              <span class="badge badge-primary badge-pill">78</span>
-            </li> -->
           </ul>
+          <!-- <div class="row row-cols-1 row-cols-md-3 g-4" id="store-items-list-grid">
+          </div> -->
         </main>
     </div>
 
@@ -124,6 +111,7 @@
           </div>
           <div class="modal-footer  justify-content-md-center">
             <button type="button" class="btn btn btn-outline-danger" data-dismiss="modal" id="checkout-cancel">Cancel</button>
+            <button type="button" class="btn btn btn-outline-warning" data-dismiss="modal" id="add-to-checkout-items">Add to Cart</button>
             <button type="button" class="btn btn btn-outline-success" data-dismiss="modal" id="checkout-items">Checkout</button>
           </div>
         </div>

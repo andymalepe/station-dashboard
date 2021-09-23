@@ -4,7 +4,8 @@
 
    if ($_GET['inventory'] == true) {
      $pdo = startPDO();
-     $request = $pdo->query("SELECT food_inventory.food_inventory_category_id,
+     $request = $pdo->query("SELECT
+            food_inventory.food_inventory_id,
         	  food_category.food_category_name,
             food_inventory.food_inventory_description,
             food_inventory.food_inventory_grams,
