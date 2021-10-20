@@ -96,23 +96,65 @@
         </main>
     </div>
 
-    <!-- Standard Modal -->
+    <!-- Item Modal -->
     <div class="modal fade" id="store-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
+            <h5 class="modal-title" id="store-item-name"></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body" id="store-modal-body">
-            ...
+            <input type="number" id="store-item-id" value="" hidden>
+            <button type="button" class="btn btn btn-outline-warning" id="add-to-checkout-items" style="margin: 5px; display: flex; float: right;">Add to Basket</button>
+            <div class="qty" style="margin: 5px; display: flex; float: right; text-align: center;">
+              <span class="minus bg-dark">-</span>
+                <input type="number" class="count" id="store-item-qty" name="qty" value="1" style="width: 24px;border: 0px; padding-bottom:6px; margin: 0px 8px;">
+              <span class="plus bg-dark">+</span>
+            </div>
+            <h5 class="display-7" id="store-item-grams"></h5>
+            <h5 class="display-7" id="store-item-ml"></h5>
+            <h5 class="display-7" id="store-item-stock"></h5>
+            <span class="badge badge-primary badge-pill" id="checkout-message"></span>
 
           </div>
           <div class="modal-footer  justify-content-md-center">
             <button type="button" class="btn btn btn-outline-danger" data-dismiss="modal" id="checkout-cancel">Cancel</button>
-            <button type="button" class="btn btn btn-outline-warning" data-dismiss="modal" id="add-to-checkout-items">Add to Cart</button>
-            <button type="button" class="btn btn btn-outline-success" data-dismiss="modal" id="checkout-items">Checkout</button>
+            <button type="button" class="btn btn btn-outline-success" data-dismiss="modal" id="checkout-items">Next</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Basket Modal -->
+    <div class="modal fade" id="basket-store-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="basket-store-item-name">Basket</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="basket-store-modal-body">
+
+            <main class="bd-content" role="main">
+              <table class="table" id="basket-store-items-list" style="padding-top: 1rem !important;">
+                <tr>
+                  <th>Description</th>
+                  <th>Quantity</th>
+                </tr>
+              </table>
+            </main>
+
+          </div>
+          <div class="modal-footer  justify-content-md-center">
+            <button type="button" class="btn btn btn-outline-danger" data-dismiss="modal" id="basket-checkout-cancel">Back</button>
+            <button type="button" class="btn btn btn-outline-success" data-dismiss="modal" id="basket-checkout-items">Checkout</button>
           </div>
         </div>
       </div>
