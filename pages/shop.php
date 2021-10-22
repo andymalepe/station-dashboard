@@ -153,8 +153,27 @@
 
           </div>
           <div class="modal-footer  justify-content-md-center">
-            <button type="button" class="btn btn btn-outline-danger" data-dismiss="modal" id="basket-checkout-cancel">Back</button>
+            <button type="button" class="btn btn btn-outline-danger" data-dismiss="modal" id="basket-checkout-cancel">Cancel</button>
             <button type="button" class="btn btn btn-outline-success" data-dismiss="modal" id="basket-checkout-items">Checkout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="store-message-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="store-message-modal-body">
+            ...
+
+          </div>
+          <div class="modal-footer  justify-content-md-center">
+            <button type="button" class="btn btn btn-outline-success" data-dismiss="modal">Ok</button>
           </div>
         </div>
       </div>

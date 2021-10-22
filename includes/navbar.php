@@ -25,7 +25,7 @@
         <a class="nav-link" href="/login/">Admin </a>
       </li>
       <li class="nav-item" id="store">
-        <a class="nav-link disabled" href="/store/">Food Store </a>
+        <a class="nav-link" href="/shop/">Food Store </a>
       </li>
     </ul>
   </div>

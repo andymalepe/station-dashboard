@@ -51,12 +51,13 @@ $(document).ready(function() {
                 basket.push(item);
                 localStorage.setItem("basket", JSON.stringify(basket));
                 $('#checkout-message').text('Successfully added item to basket');
-                // setInterval(function(){ $('#checkout-message').text(''); }, 2000);
+                setTimeout(function(){ $('#checkout-message').text(''); }, 2000);
               });
             }
          },
      error: function(a, b, c){
-         console.log(a);
+       $('#store-message-modal-body').text('Error retrieving inventory data. Please confirm that MySQL database server is running.');
+       $('#store-message-modal').modal('toggle');
      }
    });
 
@@ -67,13 +68,12 @@ $(document).ready(function() {
       });
    });
 
-   $('#shop-basket').on('click', function(){
+   $('#shop-basket, #checkout-items').on('click', function(){
      // retrieve basket from memory
      // Allow user to update basket remove, increase qty
-     $('#basket-store-modal').modal('toggle');
      let basket = JSON.parse(localStorage.getItem("basket") || "[]");
      $.each(basket, function(index, baskeItem){
-       console.log(baskeItem.desc);
+       // console.log(baskeItem.desc);
        $('#basket-store-items-list').append('\
        <tr>\
         <td>'+baskeItem.desc+'</td> \
@@ -81,37 +81,63 @@ $(document).ready(function() {
        </tr> \
        ');
       });
+      $('#basket-store-modal').modal('toggle');
    });
 
-   $('#checkout-items').on('click', function(){
-     $('#basket-store-modal').modal('toggle');
-   });
+   // $('').on('click', function(){
+   //   let basket = JSON.parse(localStorage.getItem("basket") || "[]");
+   //   $.each(basket, function(index, baskeItem){
+   //     $('#basket-store-items-list').append('\
+   //     <tr>\
+   //      <td>'+baskeItem.desc+'</td> \
+   //      <td><span class="badge badge-primary badge-pill">'+baskeItem.qty+'</span></td>\
+   //     </tr> \
+   //     ');
+   //    });
+   //   $('#basket-store-modal').modal('toggle');
+   // });
 
    $('#basket-checkout-items').on('click', function(){
      // retrieve basket from memory
      let basket = JSON.parse(localStorage.getItem("basket") || "[]");
-     $.each(basket, function(index, baskeItem){
 
-     });
-     // $.ajax({
-     //    url: '/inventory/',
-     //    type: 'GET',
-     //    dataType: 'json',
-     //    data: {
-     //      checkout: true,
-     //      signoutUser: 1,
-     //      IDs: [1, 2, 3],
-     //      Qty: [1, 1, 1]
-     //    },
-     //    success: function(response){
-     //          if (response){
-     //             console.log(response);
-     //           }
-     //        },
-     //    error: function(a, b, c){
-     //        console.log(a);
-     //    }
-     //  });
+     if(basket.length > 0){
+       let IDs = [];
+       let Qty = [];
+       $.each(basket, function(index, baskeItem){
+         IDs.push(baskeItem.id);
+         Qty.push(baskeItem.qty);
+       });
+       $.ajax({
+          url: '/inventory/',
+          type: 'GET',
+          dataType: 'json',
+          data: {
+            checkout: true,
+            signoutUser: 1,
+            IDs: IDs,
+            Qty: Qty
+          },
+          success: function(response){
+                if (response){
+                   // console.log(response);
+                   $('#store-message-modal-body').text('Basket successfully checked out.');
+                   $('#store-message-modal').modal('toggle');
+                   localStorage.clear();
+                 }
+              },
+          error: function(a, b, c){
+            $('#store-message-modal-body').text('Error connecting to database. Please retry.');
+            $('#store-message-modal').modal('toggle');
+          }
+        });
+        // console.log(IDs);
+        // console.log(Qty);
+     }
+
+
+
+
    });
 
    $('.count').prop('disabled', true);
