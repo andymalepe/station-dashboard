@@ -5,7 +5,7 @@
  if (isset($_GET['users']) && $_GET['users'] !== null) {
    if ($_GET['users'] == true) {
      $pdo = startPDO();
-     $request = $pdo->query("SELECT * FROM signout_users WHERE signout_users.Overwinterer=1 ORDER BY Name ASC")->fetchAll();
+     $request = $pdo->query("SELECT * FROM signout_users WHERE signout_users.Year=2021 OR signout_users.Year=2022  ORDER BY Name ASC")->fetchAll();
      echo json_encode($request);
    }
  }

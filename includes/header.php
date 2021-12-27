@@ -6,5 +6,8 @@
 <link rel="stylesheet" href="../lib/css/buttons.dataTables.min.css">
 <link rel="stylesheet" href="../lib/css/buttons.foundation.min.css">
 <!-- <link rel="stylesheet" href="lib/css/bootstrap-select.min.css"> -->
+<link rel="stylesheet" href="../lib/css/datepicker.css">
 <link rel="stylesheet" href="../css/master.css">
+<link rel="icon" href="../images/favicon.ico" type="image/x-icon"/>
+<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon"/>
 <meta charset="utf-8">

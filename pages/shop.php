@@ -24,10 +24,9 @@
           <li class="nav-item active" id="home">
             <a class="nav-link" href="/home/">Home <span class="sr-only">(current)</span></a>
           </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link disabled" href="#">Dashboard</a>
-          </li> -->
-
+          <li class="nav-item active" id="weather">
+            <a class="nav-link" href="/forecast/">Weather </a>
+          </li>
           <li class="nav-item" id="signout">
             <a class="nav-link" href="/signout/">Station Sign Out</a>
           </li>
@@ -35,7 +34,7 @@
             <a class="nav-link" href="/login/">Admin</a>
           </li>
           <li class="nav-item" id="store">
-            <a class="nav-link disabled" href="/store/">Food Store</a>
+            <a class="nav-link" href="/store/">Food Store</a>
           </li>
           <!-- <li class="nav-item">
             <input class="form-control mr-sm-2" id="fld-search" type="search" placeholder="Search food item" aria-label="Search">
@@ -55,7 +54,7 @@
         <li class="nav-item">
           <a class="my-2 my-sm-0 page-elements-right-margin" id="shop-basket">
             <img src="../images/icons8-buying-48.png" width="32" alt="">
-
+            <span id="shop-basket-count"></span>
           </a>
         </li>
       </ul>
@@ -108,17 +107,27 @@
           </div>
           <div class="modal-body" id="store-modal-body">
             <input type="number" id="store-item-id" value="" hidden>
-            <button type="button" class="btn btn btn-outline-warning" id="add-to-checkout-items" style="margin: 5px; display: flex; float: right;">Add to Basket</button>
-            <div class="qty" style="margin: 5px; display: flex; float: right; text-align: center;">
-              <span class="minus bg-dark">-</span>
-                <input type="number" class="count" id="store-item-qty" name="qty" value="1" style="width: 24px;border: 0px; padding-bottom:6px; margin: 0px 8px;">
-              <span class="plus bg-dark">+</span>
-            </div>
-            <h5 class="display-7" id="store-item-grams"></h5>
-            <h5 class="display-7" id="store-item-ml"></h5>
-            <h5 class="display-7" id="store-item-stock"></h5>
+            <table id="store-item-detail-table">
+              <tr>
+                <td><h5 class="display-7" id="store-item-grams"></h5><h5 class="display-7" id="store-item-ml"></h5></td>
+                <td><input type="text"  class=" form-control mr-sm-2 datepicker disabled" id="store-expiry-date" placeholder="Enter expiry date"></td>
+              </tr>
+              <tr>
+                <td><h5 class="display-7" id="store-item-stock"></h5></td>
+                <td>
+                  <div class="qty" style="margin: 5px; display: flex;text-align: center;">
+                    <span class="minus bg-dark">-</span>
+                      <input type="number" class="count" id="store-item-qty" name="qty" value="1" style="width: 24px;border: 0px; padding-bottom:6px; margin: 0px 8px;">
+                    <span class="plus bg-dark">+</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><button type="button" class="btn btn btn-outline-warning disabled" id="add-to-checkout-items" style="margin: 5px; display: flex;">Add to Basket</button></td>
+              </tr>
+            </table>
             <span class="badge badge-primary badge-pill" id="checkout-message"></span>
-
           </div>
           <div class="modal-footer  justify-content-md-center">
             <button type="button" class="btn btn btn-outline-danger" data-dismiss="modal" id="checkout-cancel">Cancel</button>
@@ -145,9 +154,13 @@
             <main class="bd-content" role="main">
               <table class="table" id="basket-store-items-list" style="padding-top: 1rem !important;">
                 <tr>
+                  <th></th>
                   <th>Description</th>
+                  <th>Expiry Date</th>
                   <th>Quantity</th>
                 </tr>
+                <tbody id="basket-store-items-list-body">
+                </tbody>
               </table>
             </main>
 

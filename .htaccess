@@ -1,6 +1,9 @@
 RewriteEngine ON
 RewriteRule ^api/?$ api/api.php
+RewriteRule ^authenticate/?$ api/authenticate.php
+RewriteRule ^resource/?$ api/resource.php
 RewriteRule ^import/?$ api/import.php
+RewriteRule ^export/?$ api/export.php
 RewriteRule ^inventory/?$ api/inventoryAPI.php
 RewriteRule ^router/?$ api/router.php
 RewriteRule ^signout/?$ pages/signout.php
@@ -11,3 +14,5 @@ RewriteRule ^forecast/?$ pages/weather.php
 RewriteRule ^/?$ pages/home.php
 RewriteRule ^store/?$ pages/store.php
 RewriteRule ^shop/?$ pages/shop.php
+RewriteRule ^ship/?$ pages/ship.php
+RewriteRule ^admin/?$ pages/admin.php

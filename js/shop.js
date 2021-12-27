@@ -42,16 +42,23 @@ $(document).ready(function() {
               });
 
               $('#add-to-checkout-items').on('click', function(){
-                let basket = JSON.parse(localStorage.getItem("basket") || "[]");
-                let item = {
-                    id: $('#store-item-id').val(),
-                    qty: $('#store-item-qty').val(),
-                    desc: $('#store-item-name').html()
-                };
-                basket.push(item);
-                localStorage.setItem("basket", JSON.stringify(basket));
-                $('#checkout-message').text('Successfully added item to basket');
-                setTimeout(function(){ $('#checkout-message').text(''); }, 2000);
+                if($('#store-expiry-date').val() == ''){
+                  $('#checkout-message').text('Please enter expiry date');
+                  // setTimeout(function(){ $('#checkout-message').text(''); }, 2000);
+                }else{
+                  let basket = JSON.parse(localStorage.getItem("basket") || "[]");
+                  let item = {
+                      id: $('#store-item-id').val(),
+                      qty: $('#store-item-qty').val(),
+                      desc: $('#store-item-name').html(),
+                      expiry: $('#store-expiry-date').val()
+                  };
+                  basket.push(item);
+                  $('#shop-basket-count').text(basket.length);
+                  localStorage.setItem("basket", JSON.stringify(basket));
+                  $('#checkout-message').text('Successfully added item to basket');
+                  setTimeout(function(){ $('#checkout-message').text(''); }, 2000);
+                } 
               });
             }
          },
@@ -72,30 +79,47 @@ $(document).ready(function() {
      // retrieve basket from memory
      // Allow user to update basket remove, increase qty
      let basket = JSON.parse(localStorage.getItem("basket") || "[]");
-     $.each(basket, function(index, baskeItem){
-       // console.log(baskeItem.desc);
-       $('#basket-store-items-list').append('\
-       <tr>\
-        <td>'+baskeItem.desc+'</td> \
-        <td><span class="badge badge-primary badge-pill">'+baskeItem.qty+'</span></td>\
-       </tr> \
-       ');
-      });
-      $('#basket-store-modal').modal('toggle');
+     console.log(basket.length);
+     // $('#shop-basket-count').text(basket.length);
+     if (basket.length > 0) {
+       $('#basket-store-items-list-body').empty();
+       $.each(basket, function(index, baskeItem){
+         // console.log(baskeItem.desc);
+         $('#basket-store-items-list-body').append('\
+         <tr style="line-height: 0.6;">\
+          <td><span name="basket-store-remove-item'+baskeItem.id+'" id="basket-store-remove-item'+baskeItem.id+'" class="badge badge-secondary badge-pill">X</span></td> \
+          <td>'+baskeItem.desc+'</td> \
+          <td>'+baskeItem.expiry+'</td> \
+          <td><span class="badge badge-primary badge-pill">'+baskeItem.qty+'</span></td>\
+         </tr> \
+         ');
+        });
+        //remove item from cart
+        $('[id^=basket-store-remove-item]').on('click', function(){
+            console.log(this);
+        });
+        $('#basket-store-modal').modal('toggle');
+
+     }else {
+       $('#store-message-modal-body').text('Please add items to your basket.');
+       $('#store-message-modal').modal('toggle');
+     }
+
    });
 
-   // $('').on('click', function(){
-   //   let basket = JSON.parse(localStorage.getItem("basket") || "[]");
-   //   $.each(basket, function(index, baskeItem){
-   //     $('#basket-store-items-list').append('\
-   //     <tr>\
-   //      <td>'+baskeItem.desc+'</td> \
-   //      <td><span class="badge badge-primary badge-pill">'+baskeItem.qty+'</span></td>\
-   //     </tr> \
-   //     ');
-   //    });
-   //   $('#basket-store-modal').modal('toggle');
-   // });
+   $('[name^=basket-store-remove-item]').on('click', function(){
+     let basket = JSON.parse(localStorage.getItem("basket") || "[]");
+     console.log(this);
+     // $.each(basket, function(index, baskeItem){
+     //   $('#basket-store-items-list').append('\
+     //   <tr>\
+     //    <td>'+baskeItem.desc+'</td> \
+     //    <td><span class="badge badge-primary badge-pill">'+baskeItem.qty+'</span></td>\
+     //   </tr> \
+     //   ');
+     //  });
+     // $('#basket-store-modal').modal('toggle');
+   });
 
    $('#basket-checkout-items').on('click', function(){
      // retrieve basket from memory
@@ -104,9 +128,11 @@ $(document).ready(function() {
      if(basket.length > 0){
        let IDs = [];
        let Qty = [];
+       let Expiry = [];
        $.each(basket, function(index, baskeItem){
          IDs.push(baskeItem.id);
          Qty.push(baskeItem.qty);
+         Expiry.push(baskeItem.expiry);
        });
        $.ajax({
           url: '/inventory/',
@@ -116,7 +142,8 @@ $(document).ready(function() {
             checkout: true,
             signoutUser: 1,
             IDs: IDs,
-            Qty: Qty
+            Qty: Qty,
+            Expiry: Expiry
           },
           success: function(response){
                 if (response){
@@ -133,11 +160,10 @@ $(document).ready(function() {
         });
         // console.log(IDs);
         // console.log(Qty);
+     }else {
+       $('#store-message-modal-body').text('Please add items to your basket.');
+       $('#store-message-modal').modal('toggle');
      }
-
-
-
-
    });
 
    $('.count').prop('disabled', true);
@@ -150,6 +176,18 @@ $(document).ready(function() {
 				$('.count').val(1);
 			}
   	});
+
+    $('.datepicker').datepicker({
+      format:'dd-mm-yyyy',
+      autoclose: true
+    });
+
+    $('#store-expiry-date').on('changeDate', function(){
+      if($('#store-expiry-date').val() != ''){
+        $('#add-to-checkout-items').removeClass('disabled');
+      }
+    });
+    
 
 });
 $(document).on('load', function(){

@@ -4,8 +4,26 @@ declare(strict_types=1);
 
 use Firebase\JWT\JWT;
 
-require_once('../vendor/autoload.php');
-
+require_once('vendor/autoload.php');
+require_once('database.php');
+$username = $_POST['username'];
+$pdo = startPDO();
+$request = $pdo->prepare("SELECT username, password FROM `users` WHERE username = ?");
+$request->execute(array($username));
+$result = $request->fetchAll(PDO::FETCH_ASSOC);
+json_encode($username);
+json_encode($result);
+// The plain text password to be hashed
+  // $plaintext_password = "Sanae4@123#";
+  //
+  // // The hash of the password that
+  // // can be stored in the database
+  // $hash = password_hash($plaintext_password,
+  //         PASSWORD_DEFAULT);
+  //
+  // // Print the generated hash
+  // echo "Generated hash: ".$hash;
+  die();
 // Validate the credentials against a database, or other data store.
 // ...
 // Store the string into variable
@@ -21,14 +39,14 @@ $hash_variable_salt = password_hash($password,
 
 // Use password_verify() function to
 // verify the password matches
-echo password_verify('Password',
-            $hash_default_salt ) . "<br>";
-
-echo password_verify('Password',
-            $hash_variable_salt ) . "<br>";
-
-echo password_verify('Password123',
-            $hash_default_salt );
+// echo password_verify('Password',
+//             $hash_default_salt ) . "<br>";
+//
+// echo password_verify('Password',
+//             $hash_variable_salt ) . "<br>";
+//
+// echo password_verify('Password123',
+//             $hash_default_salt );
 // For the purposes of this example, we'll assume that they're valid
 $hasValidCredentials = true;
 
@@ -53,9 +71,9 @@ if ($hasValidCredentials) {
     ];
 
     // Encode the array to a JWT string.
-    echo JWT::encode(
+    json_encode(JWT::encode(
         $data,      //Data to be encoded in the JWT
         $secretKey, // The signing key
         'HS512'     // Algorithm used to sign the token, see https://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms-40#section-3
-    );
+    ));
 }

@@ -16,3 +16,6 @@ body,html {
 .page-elements-right-margin{
   margin-right: 10px;
 }
+.switch{
+  color:#495057 !important;
+}

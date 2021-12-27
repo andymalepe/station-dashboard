@@ -1,7 +1,8 @@
+<?php require_once('../config.php'); ?>
 <nav class="navbar navbar-light sticky-top bg-light justify-content-center nav-station-logo">
   <a class="navbar-brand navbar-text" href="#">
     <img src="../images/sanap-logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
-    SANAE IV STATION
+    <?php echo STATION; ?> STATION
   </a>
 </nav>
 

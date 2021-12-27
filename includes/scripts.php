@@ -11,3 +11,4 @@
 <script type="text/javascript" src="../lib/js/dataTables.buttons.min.js"></script>
 <script type="text/javascript" src="../lib/js/buttons.foundation.min.js"></script>
 <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../lib/js/bootstrap-datepicker.js"></script>

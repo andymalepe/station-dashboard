@@ -20,21 +20,23 @@
    if ($_GET['checkout'] == true) {
      $IDs = $_GET['IDs'];
      $quantities = $_GET['Qty'];
+     $Expiry  = $_GET['Expiry'];
      $signoutUser = intval($_GET['signoutUser']);
      $update = false;
      $updateResult = array();
      $success = array();
      if (is_array($IDs) && is_array($quantities) && sizeof($IDs)>0 && sizeof($quantities)>0 && $signoutUser>0) {
        $pdo = startPDO();
+       $count = 0;
        foreach ($IDs as $key => $food_inventory_id) {
          //subtract item from count
          //make entry in inventory checkout
          $stmt = $pdo->prepare("UPDATE food_inventory
-              SET food_inventory.food_inventory_items_count = food_inventory.food_inventory_items_count-1
+              SET food_inventory.food_inventory_items_count = food_inventory.food_inventory_items_count-?
               WHERE food_inventory.food_inventory_id = ?");
           try {
               $pdo->beginTransaction();
-              $stmt->execute(array(intval($food_inventory_id)));
+              $stmt->execute(array(intval($quantities[$count]),intval($food_inventory_id)));
               $pdo->commit();
               $update = true;
               array_push($updateResult, array($food_inventory_id => true ));
@@ -48,10 +50,11 @@
             try {
               $stmt = $pdo->prepare("INSERT INTO food_checkout(
                   food_checkout.food_checkout_inventory_id,
-                  food_checkout.food_checkout_user_id )
-                VALUES (?, ?) ");
+                  food_checkout.food_checkout_user_id,
+                  food_checkout.food_checkout_expiry_date )
+                VALUES (?, ?, ?) ");
               $pdo->beginTransaction();
-              $stmt->execute(array(intval($food_inventory_id), intval($signoutUser)));
+              $stmt->execute(array(intval($food_inventory_id), intval($signoutUser), $Expiry[$count]));
               $pdo->commit();
               array_push($success, array($food_inventory_id => true ));
             } catch (Exception $e) {
@@ -61,6 +64,7 @@
               throw $e;
             }
           }
+          $count++;
        }
        echo json_encode(array($updateResult, $success));
      }

@@ -37,5 +37,5 @@
     $columnsArray = fgetcsv($file);
     importInventory($columnsArray);
   }
-
+  
 ?>

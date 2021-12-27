@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use Firebase\JWT\JWT;
 
-require_once('../vendor/autoload.php');
+require_once('vendor/autoload.php');
 
 // Do some checking for the request method here, if desired.
 

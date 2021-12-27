@@ -78,3 +78,38 @@ input:disabled{
   line-height: 0.6;
   border-top: none;
 }
+#shop-basket-count{
+    position: absolute;
+    top: 2px;
+    right: 22px;
+    color: white;
+    font-weight: 600;
+}
+#store-item-stock{
+  margin-bottom: 0px;
+}
+#add-to-checkout-items{
+  width: 70%;
+  margin-right: 5px !important;
+  margin-bottom: 5px;
+  text-align: center;
+  height: calc(1.5em + 0.75rem + 2px);
+  font-size: 1rem;
+  font-weight: 400;
+}
+#store-item-detail-table tbody td{
+  padding: 0rem 0rem 0rem 0.625rem;
+}
+#store-expiry-date{
+  width: 70%;
+  margin: 5px; 
+  display: flex; 
+}
+#checkout-message{
+  border-radius: -1rem;
+}
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 600px;@media (min-width: 576px)
+  }
+}
