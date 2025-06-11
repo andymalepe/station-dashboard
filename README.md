@@ -1,4 +1,4 @@
-# Station Dashboard (Marion/SANAE IV)
+# Station Dashboard 
 
 Dashboard layout for a station. Currently has Station sign out page and admin login front-end styling.
 Sign In/Out code was re-written into PDO inside api/api.php
